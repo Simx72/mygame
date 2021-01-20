@@ -161,7 +161,7 @@ class GameScene extends Phaser.Scene {
       mainChar.body.setVelocityX(-500)
       mainChar.setFlipX(true)
     } else {
-      mainChar.body.setVelocityX(0);
+      mainChar.body.setVelocityX(0)
     }
 
     if (cursorKeys.up.isDown) {
@@ -169,7 +169,7 @@ class GameScene extends Phaser.Scene {
     } else if (cursorKeys.down.isDown) {
       mainChar.body.setVelocityY(500)
     } else {
-      mainChar.body.setVelocityY(0);
+      mainChar.body.setVelocityY(0)
     }
 
   }
