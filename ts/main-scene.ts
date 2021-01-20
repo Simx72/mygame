@@ -40,11 +40,11 @@ class GameScene extends Phaser.Scene {
   /* preload part */
   public preload() {
     // cargar fondo
-    this.load.image('fondo.1', '../assets/background/PNG/Cartoon_Forest_BG_01/Layers/Sky.png');
-    this.load.image('fondo.2', '../assets/background/PNG/Cartoon_Forest_BG_01/Layers/BG_Decor.png');
-    this.load.image('fondo.3', '../assets/background/PNG/Cartoon_Forest_BG_01/Layers/Middle_Decor.png');
-    this.load.image('fondo.4', '../assets/background/PNG/Cartoon_Forest_BG_01/Layers/Foreground.png');
-    this.load.image('fondo.5', '../assets/background/PNG/Cartoon_Forest_BG_01/Layers/Ground.png');
+    this.load.image('fondo.1', 'assets/background/PNG/Cartoon_Forest_BG_01/Layers/Sky.png');
+    this.load.image('fondo.2', 'assets/background/PNG/Cartoon_Forest_BG_01/Layers/BG_Decor.png');
+    this.load.image('fondo.3', 'assets/background/PNG/Cartoon_Forest_BG_01/Layers/Middle_Decor.png');
+    this.load.image('fondo.4', 'assets/background/PNG/Cartoon_Forest_BG_01/Layers/Foreground.png');
+    this.load.image('fondo.5', 'assets/background/PNG/Cartoon_Forest_BG_01/Layers/Ground.png');
 
 
     this.load.spritesheet(
