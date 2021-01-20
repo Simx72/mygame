@@ -138,7 +138,7 @@ class GameScene extends Phaser.Scene {
     let texto = this.object<Phaser.GameObjects.Text>('texto.prueba');
     let camera = { x: this.cameras.main.scrollX, y: this.cameras.main.scrollY };
     texto.setPosition(camera.x + 10, camera.y + 10);
-    texto.text = `Camera Position | x: ${Math.round(camera.x)} | y: ${Math.floor(camera.y)}\n`;
+    texto.text = `Camera Position\t| x: ${Math.round(camera.x)}\t| y: ${Math.floor(camera.y)}\n`;
     texto.text += `Pasto 1 Position | x: ${Math.round(fondo5a.x)} | y: ${Math.floor(fondo5a.y)}\n`;
     // texto.text += `Fondo.5.b (Ground b) Position - x: ${Math.round(fondo5b.x)} - y: ${Math.floor(fondo5b.y)}\n`;
 
