@@ -49,7 +49,7 @@ class GameScene extends Phaser.Scene {
 
     this.load.spritesheet(
       'character.main.idle',
-      '/assets/characters/1-Woodcutter/Woodcutter_idle.png',
+      location.href + '/assets/characters/1-Woodcutter/Woodcutter_idle.png',
       {
         frameWidth: 27,
         frameHeight: 32,
@@ -60,7 +60,7 @@ class GameScene extends Phaser.Scene {
     )
     this.load.spritesheet(
       'character.main.attack.1',
-      '/assets/characters/1-Woodcutter/Woodcutter_attack1.png',
+      location.href + '/assets/characters/1-Woodcutter/Woodcutter_attack1.png',
       {
         frameWidth: 45,
         frameHeight: 38,

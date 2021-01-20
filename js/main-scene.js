@@ -41,14 +41,14 @@ var GameScene = /** @class */ (function (_super) {
         this.load.image('fondo.3', location.href + 'assets/background/PNG/Cartoon_Forest_BG_01/Layers/Middle_Decor.png');
         this.load.image('fondo.4', location.href + 'assets/background/PNG/Cartoon_Forest_BG_01/Layers/Foreground.png');
         this.load.image('fondo.5', location.href + 'assets/background/PNG/Cartoon_Forest_BG_01/Layers/Ground.png');
-        this.load.spritesheet('character.main.idle', '/assets/characters/1-Woodcutter/Woodcutter_idle.png', {
+        this.load.spritesheet('character.main.idle', location.href + '/assets/characters/1-Woodcutter/Woodcutter_idle.png', {
             frameWidth: 27,
             frameHeight: 32,
             margin: 0,
             spacing: 21,
             endFrame: 4
         });
-        this.load.spritesheet('character.main.attack.1', '/assets/characters/1-Woodcutter/Woodcutter_attack1.png', {
+        this.load.spritesheet('character.main.attack.1', location.href + '/assets/characters/1-Woodcutter/Woodcutter_attack1.png', {
             frameWidth: 45,
             frameHeight: 38,
             margin: 0,
