@@ -126,10 +126,6 @@ var GameScene = /** @class */ (function (_super) {
         else {
             mainChar.body.setVelocityY(0);
         }
-        var A = this.input.keyboard.addKey(13);
-        if (this.input.keyboard.checkDown(A, 100)) {
-            this.cameras.main.setPosition(0, 0);
-        }
     };
     return GameScene;
 }(Phaser.Scene));

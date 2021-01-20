@@ -172,12 +172,6 @@ class GameScene extends Phaser.Scene {
       mainChar.body.setVelocityY(0);
     }
 
-    const A = this.input.keyboard.addKey(13)
-
-    if (this.input.keyboard.checkDown(A, 100)) {
-      this.cameras.main.setPosition(0, 0)
-    }
-
   }
 
 }
