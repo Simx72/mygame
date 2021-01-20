@@ -36,11 +36,11 @@ var GameScene = /** @class */ (function (_super) {
     /* preload part */
     GameScene.prototype.preload = function () {
         // cargar fondo
-        this.load.image('fondo.1', location.pathname + 'assets/background/PNG/Cartoon_Forest_BG_01/Layers/Sky.png');
-        this.load.image('fondo.2', location.pathname + 'assets/background/PNG/Cartoon_Forest_BG_01/Layers/BG_Decor.png');
-        this.load.image('fondo.3', location.pathname + 'assets/background/PNG/Cartoon_Forest_BG_01/Layers/Middle_Decor.png');
-        this.load.image('fondo.4', location.pathname + 'assets/background/PNG/Cartoon_Forest_BG_01/Layers/Foreground.png');
-        this.load.image('fondo.5', location.pathname + 'assets/background/PNG/Cartoon_Forest_BG_01/Layers/Ground.png');
+        this.load.image('fondo.1', location.href + 'assets/background/PNG/Cartoon_Forest_BG_01/Layers/Sky.png');
+        this.load.image('fondo.2', location.href + 'assets/background/PNG/Cartoon_Forest_BG_01/Layers/BG_Decor.png');
+        this.load.image('fondo.3', location.href + 'assets/background/PNG/Cartoon_Forest_BG_01/Layers/Middle_Decor.png');
+        this.load.image('fondo.4', location.href + 'assets/background/PNG/Cartoon_Forest_BG_01/Layers/Foreground.png');
+        this.load.image('fondo.5', location.href + 'assets/background/PNG/Cartoon_Forest_BG_01/Layers/Ground.png');
         this.load.spritesheet('character.main.idle', '/assets/characters/1-Woodcutter/Woodcutter_idle.png', {
             frameWidth: 27,
             frameHeight: 32,
