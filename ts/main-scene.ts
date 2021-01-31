@@ -139,8 +139,8 @@ class GameScene extends Phaser.Scene {
 
     let camera = { x: this.cameras.main.scrollX, y: this.cameras.main.scrollY };
 
-    let texto = this.object<Phaser.GameObjects.Text>('texto.debug');
     if (this.physics.config.debug) {
+      let texto = this.object<Phaser.GameObjects.Text>('texto.debug');
       texto.setPosition(camera.x + 10, camera.y + 10);
       texto.text = `Camera Position\t| x: ${Math.round(camera.x)}\t| y: ${Math.floor(camera.y)}\n`;
       texto.text += `Pasto 1 Position | x: ${Math.round(fondo5a.x)} | y: ${Math.floor(fondo5a.y)}\n`;
@@ -151,7 +151,7 @@ class GameScene extends Phaser.Scene {
     this.object<Phaser.GameObjects.Image>("fondo.2").setX(camera.x * 0/* .04 */);
     this.object<Phaser.GameObjects.Image>("fondo.3").setX(camera.x * 0/* .08 */);
     this.object<Phaser.GameObjects.Image>("fondo.4").setX(camera.x * 0/* .16 */);
-    let x5 = this.object<Phaser.GameObjects.Image>("fondo.5.a").setX(calcularPos(camera.x, 0.25, this.scale.width, texto)).x;
+    let x5 = this.object<Phaser.GameObjects.Image>("fondo.5.a").setX(calcularPos(camera.x, 0.25, this.scale.width, this.object<Phaser.GameObjects.Text>('texto.debug'))).x;
     this.object<Phaser.GameObjects.Image>("fondo.5.b").setX(x5 + this.scale.width);
 
     var mainChar = this.object<Phaser.GameObjects.Sprite & { body: Phaser.Physics.Arcade.Body }>("character.main");
