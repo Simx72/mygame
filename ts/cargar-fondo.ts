@@ -61,7 +61,7 @@ function cargarFondo(game: GameScene) {
   fondo1.setVisible(false);
   fondo5b.setVisible(false);
 
-  game.add.line(void 0, void 0, void 0, void 0, void 0, void 0, 0xFFFFFF)
+  game.add.line(0, 100, 10, 100, 20, 100, 0xFFFFFF)
 
 
 
