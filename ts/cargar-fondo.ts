@@ -59,7 +59,7 @@ function cargarFondo(game: GameScene) {
   // fondo3.setVisible(false);
   // fondo2.setVisible(false);
   // fondo1.setVisible(false);
-  fondo5b.setVisible(false);
+  // fondo5b.setVisible(false);
 
   fondo1.displayWidth = game.scale.width + 200;
   fondo2.displayWidth = game.scale.width;
