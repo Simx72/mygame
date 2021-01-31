@@ -85,13 +85,13 @@ var GameScene = /** @class */ (function (_super) {
         mainChar.anims.play('attack');
         var camera = this.cameras.main.startFollow(mainChar, false, 0.3, 0.3);
         // camera.setBounds(0, 0, this.scale.width * 2, 0)
-        this.object('texto.prueba', this.add.text(10, 10, 'Camera Position').setOrigin(0, 0));
+        this.object('texto.debug', this.add.text(10, 10, 'Camera Position').setOrigin(0, 0));
     };
     /* update part */
     GameScene.prototype.update = function () {
         var fondo5a = this.object("fondo.5.a");
         // let fondo5b = this.object<Phaser.GameObjects.Image>("fondo.5.b");
-        var texto = this.object('texto.prueba');
+        var texto = this.object('texto.debug');
         var camera = { x: this.cameras.main.scrollX, y: this.cameras.main.scrollY };
         texto.setPosition(camera.x + 10, camera.y + 10);
         texto.text = "Camera Position\t| x: " + Math.round(camera.x) + "\t| y: " + Math.floor(camera.y) + "\n";
