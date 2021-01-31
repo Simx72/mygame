@@ -1,6 +1,6 @@
 function calcularPos(camX: number, scale: number, width: number, text?: Phaser.GameObjects.Text) {
 
-  var x = 0
+  var x: number;
 
   /* scale = 32% ó 0.32 */
 
