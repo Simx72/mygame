@@ -6,11 +6,11 @@ function cargarFondo(game) {
     var fondo4 = game.object('fondo.4', game.add.image(0, 0, 'fondo.4'));
     var fondo5a = game.object('fondo.5.a', game.add.image(0, 0, 'fondo.5', 0));
     var fondo5b = game.object('fondo.5.b', game.add.image(0 + game.game.scale.width, 0, 'fondo.5'));
-    fondo4.setVisible(false);
-    fondo3.setVisible(false);
-    fondo2.setVisible(false);
-    fondo1.setVisible(false);
-    fondo5b.setVisible(false);
+    // fondo4.setVisible(false);
+    // fondo3.setVisible(false);
+    // fondo2.setVisible(false);
+    // fondo1.setVisible(false);
+    // fondo5b.setVisible(false);
     if (game.physics.config.debug)
         game.add.rectangle(game.scale.width / 2, game.scale.height / 2, 100, 100, 0xFFFFFF);
     fondo1.displayWidth = game.scale.width + 200;

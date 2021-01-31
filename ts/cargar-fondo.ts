@@ -55,11 +55,11 @@ function cargarFondo(game: GameScene) {
     )
   );
 
-  fondo4.setVisible(false);
-  fondo3.setVisible(false);
-  fondo2.setVisible(false);
-  fondo1.setVisible(false);
-  fondo5b.setVisible(false);
+  // fondo4.setVisible(false);
+  // fondo3.setVisible(false);
+  // fondo2.setVisible(false);
+  // fondo1.setVisible(false);
+  // fondo5b.setVisible(false);
 
   if (game.physics.config.debug)
     game.add.rectangle(
