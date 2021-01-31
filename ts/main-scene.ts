@@ -146,8 +146,7 @@ class GameScene extends Phaser.Scene {
     this.object<Phaser.GameObjects.Image>("fondo.2").setX(camera.x * 0.04);
     this.object<Phaser.GameObjects.Image>("fondo.3").setX(camera.x * 0.08);
     this.object<Phaser.GameObjects.Image>("fondo.4").setX(camera.x * 0.16);
-    // this.object<Phaser.GameObjects.Image>("fondo.5.a").setPosition(camera.x * 0.32, camera.y * 0.32);
-    this.object<Phaser.GameObjects.Image>("fondo.5.a").setX(calcularPos(camera.x, 0.32, this.scale.width, texto));
+    this.object<Phaser.GameObjects.Image>("fondo.5.a").setX(calcularPos(camera.x, 0.5, this.scale.width, texto));
     this.object<Phaser.GameObjects.Image>("fondo.5.b").setX(camera.x * 0.32 + this.scale.width);
 
     var mainChar = this.object<Phaser.GameObjects.Sprite & { body: Phaser.Physics.Arcade.Body }>("character.main");
