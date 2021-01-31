@@ -7,7 +7,7 @@ function calcularPos(camX, scale, width, text) {
     var rWidth = width / scale;
     var part = Math.floor(camX / rWidth);
     x = (part * width) + pastoInicio;
-    if (typeof text != "undefined") {
+    if (typeof text != "undefined" && text != void 0) {
         var f = function (x) { return x ? Math.floor(x) : 0; };
         text.text += "camX: " + f(camX) + " - scale: " + scale + " - width: " + f(width) + "\n";
         text.text += "pasto inicio: " + f(pastoInicio) + " - pasto fin: " + f(pastoFin) + " - part: " + part + " \n";

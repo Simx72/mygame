@@ -13,7 +13,7 @@ function calcularPos(camX: number, scale: number, width: number, text?: Phaser.G
 
   x = (part * width) + pastoInicio
 
-  if (typeof text != "undefined") {
+  if (typeof text != "undefined" && text != void 0) {
     let f = (x: number) => x ? Math.floor(x) : 0;
     text.text += `camX: ${f(camX)} - scale: ${scale} - width: ${f(width)}\n`;
     text.text += `pasto inicio: ${f(pastoInicio)} - pasto fin: ${f(pastoFin)} - part: ${part} \n`;
