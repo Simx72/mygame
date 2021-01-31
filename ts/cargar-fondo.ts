@@ -61,14 +61,15 @@ function cargarFondo(game: GameScene) {
   // fondo1.setVisible(false);
   // fondo5b.setVisible(false);
 
-  if (game.physics.config.debug)
-    game.add.rectangle(
-      game.scale.width / 2,
-      game.scale.height / 2,
-      100,
-      100,
-      0xFFFFFF
-    )
+  /* 
+    if (game.physics.config.debug)
+      game.add.rectangle(
+        game.scale.width / 2,
+        game.scale.height / 2,
+        100,
+        100,
+        0xFFFFFF
+      ) */
 
 
   fondo1.displayWidth = game.scale.width + 200;
