@@ -1,4 +1,4 @@
-let line: Phaser.GameObjects.Line;
+var line: Phaser.GameObjects.Line;
 function cargarFondo(game: GameScene) {
 
   var fondo1 = game.object(
