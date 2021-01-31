@@ -1,3 +1,3 @@
 # My Game
 > ## not finished!
-link: [Simx72.github.io/mygame](Simx72.github.io/mygame).
+link: [Simx72.github.io/mygame](https://Simx72.github.io/mygame).
