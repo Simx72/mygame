@@ -11,7 +11,12 @@ function cargarFondo(game) {
     fondo2.setVisible(false);
     fondo1.setVisible(false);
     fondo5b.setVisible(false);
-    game.add.line(0, 100, 10, 100, 20, 100, 0xFFFFFF);
+    {
+        var line = game.add.line();
+        line.setFillStyle(0xFFFFFF);
+        line.setTo(0, 0, 0, game.scale.height);
+        line.setLineWidth(10, 10);
+    }
     fondo1.displayWidth = game.scale.width + 200;
     fondo2.displayWidth = game.scale.width;
     fondo3.displayWidth = game.scale.width;
