@@ -1,5 +1,4 @@
 "use strict";
-var line;
 function cargarFondo(game) {
     var fondo1 = game.object('fondo.1', game.add.image(0, 0, 'fondo.1'));
     var fondo2 = game.object('fondo.2', game.add.image(0, 0, 'fondo.2'));
@@ -12,12 +11,6 @@ function cargarFondo(game) {
     fondo2.setVisible(false);
     fondo1.setVisible(false);
     fondo5b.setVisible(false);
-    {
-        line = new Phaser.GameObjects.Line(game, 0, 0, 0, 0, 0, game.scale.height);
-        line.setFillStyle(0xFFFFFF);
-        line.setLineWidth(10, 10);
-        game.add.existing(line);
-    }
     fondo1.displayWidth = game.scale.width + 200;
     fondo2.displayWidth = game.scale.width;
     fondo3.displayWidth = game.scale.width;

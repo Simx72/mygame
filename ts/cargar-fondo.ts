@@ -1,4 +1,3 @@
-var line: Phaser.GameObjects.Line;
 function cargarFondo(game: GameScene) {
 
   var fondo1 = game.object(
@@ -61,13 +60,6 @@ function cargarFondo(game: GameScene) {
   fondo2.setVisible(false);
   fondo1.setVisible(false);
   fondo5b.setVisible(false);
-
-  {
-    line = new Phaser.GameObjects.Line(game, 0, 0, 0, 0, 0, game.scale.height)
-    line.setFillStyle(0xFFFFFF)
-    line.setLineWidth(10, 10)
-    game.add.existing(line)
-  }
 
 
   fondo1.displayWidth = game.scale.width + 200;
