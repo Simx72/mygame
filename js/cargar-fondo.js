@@ -13,9 +13,10 @@ function cargarFondo(game) {
     fondo1.setVisible(false);
     fondo5b.setVisible(false);
     {
-        line = game.add.line(0, 0, 0, game.scale.height);
+        line = new Phaser.GameObjects.Line(game, 0, 0, 0, 0, 0, game.scale.height);
         line.setFillStyle(0xFFFFFF);
         line.setLineWidth(10, 10);
+        game.add.existing(line);
     }
     fondo1.displayWidth = game.scale.width + 200;
     fondo2.displayWidth = game.scale.width;
