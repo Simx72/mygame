@@ -1,4 +1,5 @@
 "use strict";
+var line;
 function cargarFondo(game) {
     var fondo1 = game.object('fondo.1', game.add.image(0, 0, 'fondo.1'));
     var fondo2 = game.object('fondo.2', game.add.image(0, 0, 'fondo.2'));
@@ -12,7 +13,7 @@ function cargarFondo(game) {
     fondo1.setVisible(false);
     fondo5b.setVisible(false);
     {
-        var line = game.add.line();
+        line = game.add.line();
         line.setFillStyle(0xFFFFFF);
         line.setTo(0, 0, 0, game.scale.height);
         line.setLineWidth(10, 10);
