@@ -101,8 +101,8 @@ var GameScene = /** @class */ (function (_super) {
         this.object("fondo.2").setX(camera.x * 0.04);
         this.object("fondo.3").setX(camera.x * 0.08);
         this.object("fondo.4").setX(camera.x * 0.16);
-        this.object("fondo.5.a").setX(calcularPos(camera.x, 0.5, this.scale.width, texto));
-        this.object("fondo.5.b").setX(camera.x * 0.32 + this.scale.width);
+        var x5 = this.object("fondo.5.a").setX(calcularPos(camera.x, 0.32, this.scale.width, texto)).x;
+        this.object("fondo.5.b").setX(x5 + this.scale.width);
         var mainChar = this.object("character.main");
         var cursorKeys = this.input.keyboard.createCursorKeys();
         if (cursorKeys.right.isDown && cursorKeys.left.isUp) {
