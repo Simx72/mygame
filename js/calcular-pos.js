@@ -1,6 +1,6 @@
 "use strict";
 function calcularPos(camX, scale, width, text) {
-    var x = 0;
+    var x;
     /* scale = 32% ó 0.32 */
     var pastoInicio = camX * scale;
     var pastoFin = pastoInicio + width;
