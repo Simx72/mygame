@@ -94,8 +94,8 @@ var GameScene = /** @class */ (function (_super) {
         var fondo5a = this.object("fondo.5.a");
         // let fondo5b = this.object<Phaser.GameObjects.Image>("fondo.5.b");
         var camera = { x: this.cameras.main.scrollX, y: this.cameras.main.scrollY };
-        var texto = this.object('texto.debug');
         if (this.physics.config.debug) {
+            var texto = this.object('texto.debug');
             texto.setPosition(camera.x + 10, camera.y + 10);
             texto.text = "Camera Position\t| x: " + Math.round(camera.x) + "\t| y: " + Math.floor(camera.y) + "\n";
             texto.text += "Pasto 1 Position | x: " + Math.round(fondo5a.x) + " | y: " + Math.floor(fondo5a.y) + "\n";
@@ -105,7 +105,7 @@ var GameScene = /** @class */ (function (_super) {
         this.object("fondo.2").setX(camera.x * 0 /* .04 */);
         this.object("fondo.3").setX(camera.x * 0 /* .08 */);
         this.object("fondo.4").setX(camera.x * 0 /* .16 */);
-        var x5 = this.object("fondo.5.a").setX(calcularPos(camera.x, 0.25, this.scale.width, texto)).x;
+        var x5 = this.object("fondo.5.a").setX(calcularPos(camera.x, 0.25, this.scale.width, this.object('texto.debug'))).x;
         this.object("fondo.5.b").setX(x5 + this.scale.width);
         var mainChar = this.object("character.main");
         var cursorKeys = this.input.keyboard.createCursorKeys();
