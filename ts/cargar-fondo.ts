@@ -61,6 +61,8 @@ function cargarFondo(game: GameScene) {
   fondo1.setVisible(false);
   fondo5b.setVisible(false);
 
+  game.add.line(void 0, void 0, void 0, void 0, void 0, void 0, 0xFFFFFF)
+
 
 
   fondo1.displayWidth = game.scale.width + 200;
