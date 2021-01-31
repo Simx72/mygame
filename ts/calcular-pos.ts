@@ -7,7 +7,7 @@ function calcularPos(camX: number, scale: number, width: number, text?: Phaser.G
   var pastoInicio = camX * scale
   var pastoFin = pastoInicio + width
 
-  var rWidth = width / scale + width
+  var rWidth = width / scale
 
   var part = Math.floor(camX / rWidth)
 
