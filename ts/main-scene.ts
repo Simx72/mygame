@@ -137,9 +137,10 @@ class GameScene extends Phaser.Scene {
     let fondo5a = this.object<Phaser.GameObjects.Image>("fondo.5.a");
     // let fondo5b = this.object<Phaser.GameObjects.Image>("fondo.5.b");
 
+    let camera = { x: this.cameras.main.scrollX, y: this.cameras.main.scrollY };
+
+    let texto = this.object<Phaser.GameObjects.Text>('texto.debug');
     if (this.physics.config.debug) {
-      let texto = this.object<Phaser.GameObjects.Text>('texto.debug');
-      let camera = { x: this.cameras.main.scrollX, y: this.cameras.main.scrollY };
       texto.setPosition(camera.x + 10, camera.y + 10);
       texto.text = `Camera Position\t| x: ${Math.round(camera.x)}\t| y: ${Math.floor(camera.y)}\n`;
       texto.text += `Pasto 1 Position | x: ${Math.round(fondo5a.x)} | y: ${Math.floor(fondo5a.y)}\n`;

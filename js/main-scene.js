@@ -93,9 +93,9 @@ var GameScene = /** @class */ (function (_super) {
     GameScene.prototype.update = function () {
         var fondo5a = this.object("fondo.5.a");
         // let fondo5b = this.object<Phaser.GameObjects.Image>("fondo.5.b");
+        var camera = { x: this.cameras.main.scrollX, y: this.cameras.main.scrollY };
         if (this.physics.config.debug) {
             var texto = this.object('texto.debug');
-            var camera = { x: this.cameras.main.scrollX, y: this.cameras.main.scrollY };
             texto.setPosition(camera.x + 10, camera.y + 10);
             texto.text = "Camera Position\t| x: " + Math.round(camera.x) + "\t| y: " + Math.floor(camera.y) + "\n";
             texto.text += "Pasto 1 Position | x: " + Math.round(fondo5a.x) + " | y: " + Math.floor(fondo5a.y) + "\n";
