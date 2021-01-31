@@ -143,9 +143,9 @@ class GameScene extends Phaser.Scene {
     // texto.text += `Fondo.5.b (Ground b) Position - x: ${Math.round(fondo5b.x)} - y: ${Math.floor(fondo5b.y)}\n`;
 
     this.object<Phaser.GameObjects.Image>("fondo.1").setPosition(camera.x * 1 - 100, camera.y - 100);
-    this.object<Phaser.GameObjects.Image>("fondo.2").setX(camera.x * 0.04);
-    this.object<Phaser.GameObjects.Image>("fondo.3").setX(camera.x * 0.08);
-    this.object<Phaser.GameObjects.Image>("fondo.4").setX(camera.x * 0.16);
+    this.object<Phaser.GameObjects.Image>("fondo.2").setX(camera.x * 0/* .04 */);
+    this.object<Phaser.GameObjects.Image>("fondo.3").setX(camera.x * 0/* .08 */);
+    this.object<Phaser.GameObjects.Image>("fondo.4").setX(camera.x * 0/* .16 */);
     let x5 = this.object<Phaser.GameObjects.Image>("fondo.5.a").setX(calcularPos(camera.x, 0.25, this.scale.width, texto)).x;
     this.object<Phaser.GameObjects.Image>("fondo.5.b").setX(x5 + this.scale.width);
 
