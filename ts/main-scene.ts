@@ -1,12 +1,12 @@
-const sceneConfig: Phaser.Types.Scenes.SettingsConfig = {
-  active: false,
-  visible: false,
-  key: 'main-scene',
-};
 
 class GameScene extends Phaser.Scene {
 
   constructor() {
+    const sceneConfig: Phaser.Types.Scenes.SettingsConfig = {
+      active: false,
+      visible: false,
+      key: 'main-scene',
+    };
     super(sceneConfig);
     this.objects = {};
   }

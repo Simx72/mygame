@@ -12,15 +12,16 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var sceneConfig = {
-    active: false,
-    visible: false,
-    key: 'main-scene',
-};
 var GameScene = /** @class */ (function (_super) {
     __extends(GameScene, _super);
     function GameScene() {
-        var _this = _super.call(this, sceneConfig) || this;
+        var _this = this;
+        var sceneConfig = {
+            active: false,
+            visible: false,
+            key: 'main-scene',
+        };
+        _this = _super.call(this, sceneConfig) || this;
         _this.objects = {};
         return _this;
     }
