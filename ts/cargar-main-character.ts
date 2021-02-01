@@ -25,8 +25,8 @@ function cargarMainCharacter(game: GameScene) {
 
   mainChar.setScale(2);
 
-  mainChar.addListener('animationcomplete', function () {
-    eval("console.log('anim complete', this)")
+  mainChar.addListener('animationcomplete', function (a: any) {
+    eval("console.log('anim complete\\n', this,'\\n', a)")
     mainChar.anims.play('idle');
   });
 

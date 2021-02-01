@@ -17,8 +17,8 @@ function cargarMainCharacter(game) {
         frameRate: 10
     });
     mainChar.setScale(2);
-    mainChar.addListener('animationcomplete', function () {
-        eval("console.log('anim complete', this)");
+    mainChar.addListener('animationcomplete', function (a) {
+        eval("console.log('anim complete\\n', this,'\\n', a)");
         mainChar.anims.play('idle');
     });
     mainChar.anims.play('attack');
