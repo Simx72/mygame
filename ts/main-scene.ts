@@ -139,7 +139,7 @@ class GameScene extends Phaser.Scene {
     if (this.physics.config.debug) {
       let texto = this.object<Phaser.GameObjects.Text>('texto.debug');
       texto.setPosition(camera.x + 10, camera.y + 10);
-      texto.text = `Camera Position\t| x: ${Math.round(camera.x)}\t| y: ${Math.floor(camera.y)}\n`;
+      texto.text = `Camera Position\t| x: ${Math.floor(camera.x)}\t| y: ${Math.floor(camera.y)}\n`;
     }
 
     var mainChar = this.object<Phaser.Types.Physics.Arcade.ImageWithDynamicBody>("character.main");
