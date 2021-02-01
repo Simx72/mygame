@@ -124,6 +124,20 @@ define("level-scene", ["require", "exports", "default-scene"], function (require
             _this._preload = function () {
                 _this.centerX = _this.game.scale.width / 2;
                 _this.centerY = _this.game.scale.height / 2;
+                _this.load.spritesheet('character.main.idle', location.href + 'assets/characters/1-Woodcutter/Woodcutter_idle.png', {
+                    frameWidth: 27,
+                    frameHeight: 32,
+                    margin: 0,
+                    spacing: 21,
+                    endFrame: 4
+                });
+                _this.load.spritesheet('character.main.attack.1', location.href + 'assets/characters/1-Woodcutter/Woodcutter_attack1.png', {
+                    frameWidth: 45,
+                    frameHeight: 38,
+                    margin: 0,
+                    spacing: 3,
+                    endFrame: 6
+                });
                 _this.$preload();
             };
             /**
@@ -270,85 +284,69 @@ define("main-scene", ["require", "exports", "level-scene", "cargar-fondo", "carg
     var LevelScene1 = /** @class */ (function (_super) {
         __extends(LevelScene1, _super);
         function LevelScene1() {
-            var _this = this;
-            var sceneConfig = {
+            var _this = _super.call(this, {
                 active: false,
                 visible: false,
                 key: 'main-scene',
+            }) || this;
+            /* preload part */
+            _this.$preload = function () {
+                // cargar fondo
+                _this.load.image('fondo.1', location.href + 'assets/background/PNG/Cartoon_Forest_BG_01/Layers/Sky.png');
+                _this.load.image('fondo.2', location.href + 'assets/background/PNG/Cartoon_Forest_BG_01/Layers/BG_Decor.png');
+                _this.load.image('fondo.3', location.href + 'assets/background/PNG/Cartoon_Forest_BG_01/Layers/Middle_Decor.png');
+                _this.load.image('fondo.4', location.href + 'assets/background/PNG/Cartoon_Forest_BG_01/Layers/Foreground.png');
+                _this.load.image('fondo.5', location.href + 'assets/background/PNG/Cartoon_Forest_BG_01/Layers/Ground.png');
             };
-            _this = _super.call(this, sceneConfig) || this;
+            /* create part */
+            _this.$create = function () {
+                var center = {
+                    x: _this.scale.width / 2,
+                    y: _this.scale.height / 2,
+                };
+                cargar_fondo_1.default(_this);
+                // this.physics.world.gravity.y = 100;
+                cargar_main_character_1.default(_this);
+                var camera = _this.cameras.main;
+                camera.setBounds(0, 0, _this.scale.width * 5, 0);
+                if (_this.physics.config.debug) {
+                    _this.object('texto.debug', _this.add.text(10, 10, 'Camera Position').setOrigin(0, 0));
+                }
+            };
+            /* update part */
+            _this.$update = function () {
+                var camera = { x: _this.cameras.main.scrollX, y: _this.cameras.main.scrollY };
+                if (_this.physics.config.debug) {
+                    var texto = _this.object('texto.debug');
+                    texto.setPosition(camera.x + 10, camera.y + 10);
+                    texto.text = "Camera Position\t| x: " + Math.floor(camera.x) + "\t| y: " + Math.floor(camera.y) + "\n";
+                }
+                update_fondo_1.default(_this);
+                var mainChar = _this.object("character.main");
+                var cursorKeys = _this.input.keyboard.createCursorKeys();
+                if (cursorKeys.right.isDown && cursorKeys.left.isUp) {
+                    mainChar.body.setVelocityX(500);
+                    mainChar.setFlipX(false);
+                }
+                else if (cursorKeys.left.isDown && cursorKeys.right.isUp) {
+                    mainChar.body.setVelocityX(-500);
+                    mainChar.setFlipX(true);
+                }
+                else {
+                    mainChar.body.setVelocityX(0);
+                }
+                if (cursorKeys.up.isDown) {
+                    mainChar.body.setVelocityY(-500);
+                }
+                else if (cursorKeys.down.isDown) {
+                    mainChar.body.setVelocityY(500);
+                }
+                else {
+                    mainChar.body.setVelocityY(0);
+                }
+            };
             return _this;
         }
-        /* preload part */
-        LevelScene1.prototype.preload = function () {
-            // cargar fondo
-            this.load.image('fondo.1', location.href + 'assets/background/PNG/Cartoon_Forest_BG_01/Layers/Sky.png');
-            this.load.image('fondo.2', location.href + 'assets/background/PNG/Cartoon_Forest_BG_01/Layers/BG_Decor.png');
-            this.load.image('fondo.3', location.href + 'assets/background/PNG/Cartoon_Forest_BG_01/Layers/Middle_Decor.png');
-            this.load.image('fondo.4', location.href + 'assets/background/PNG/Cartoon_Forest_BG_01/Layers/Foreground.png');
-            this.load.image('fondo.5', location.href + 'assets/background/PNG/Cartoon_Forest_BG_01/Layers/Ground.png');
-            this.load.spritesheet('character.main.idle', location.href + 'assets/characters/1-Woodcutter/Woodcutter_idle.png', {
-                frameWidth: 27,
-                frameHeight: 32,
-                margin: 0,
-                spacing: 21,
-                endFrame: 4
-            });
-            this.load.spritesheet('character.main.attack.1', location.href + 'assets/characters/1-Woodcutter/Woodcutter_attack1.png', {
-                frameWidth: 45,
-                frameHeight: 38,
-                margin: 0,
-                spacing: 3,
-                endFrame: 6
-            });
-        };
-        /* create part */
-        LevelScene1.prototype.create = function () {
-            var center = {
-                x: this.scale.width / 2,
-                y: this.scale.height / 2,
-            };
-            cargar_fondo_1.default(this);
-            // this.physics.world.gravity.y = 100;
-            cargar_main_character_1.default(this);
-            var camera = this.cameras.main;
-            camera.setBounds(0, 0, this.scale.width * 5, 0);
-            if (this.physics.config.debug) {
-                this.object('texto.debug', this.add.text(10, 10, 'Camera Position').setOrigin(0, 0));
-            }
-        };
-        /* update part */
-        LevelScene1.prototype.update = function () {
-            var camera = { x: this.cameras.main.scrollX, y: this.cameras.main.scrollY };
-            if (this.physics.config.debug) {
-                var texto = this.object('texto.debug');
-                texto.setPosition(camera.x + 10, camera.y + 10);
-                texto.text = "Camera Position\t| x: " + Math.floor(camera.x) + "\t| y: " + Math.floor(camera.y) + "\n";
-            }
-            update_fondo_1.default(this);
-            var mainChar = this.object("character.main");
-            var cursorKeys = this.input.keyboard.createCursorKeys();
-            if (cursorKeys.right.isDown && cursorKeys.left.isUp) {
-                mainChar.body.setVelocityX(500);
-                mainChar.setFlipX(false);
-            }
-            else if (cursorKeys.left.isDown && cursorKeys.right.isUp) {
-                mainChar.body.setVelocityX(-500);
-                mainChar.setFlipX(true);
-            }
-            else {
-                mainChar.body.setVelocityX(0);
-            }
-            if (cursorKeys.up.isDown) {
-                mainChar.body.setVelocityY(-500);
-            }
-            else if (cursorKeys.down.isDown) {
-                mainChar.body.setVelocityY(500);
-            }
-            else {
-                mainChar.body.setVelocityY(0);
-            }
-        };
         return LevelScene1;
     }(level_scene_1.default));
     exports.default = LevelScene1;

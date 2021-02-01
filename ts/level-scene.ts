@@ -22,6 +22,29 @@ export default class LevelScene extends DefaultScene {
     this._preload = () => {
       this.centerX = this.game.scale.width / 2;
       this.centerY = this.game.scale.height / 2;
+
+      this.load.spritesheet(
+        'character.main.idle',
+        location.href + 'assets/characters/1-Woodcutter/Woodcutter_idle.png',
+        {
+          frameWidth: 27,
+          frameHeight: 32,
+          margin: 0,
+          spacing: 21,
+          endFrame: 4
+        }
+      )
+      this.load.spritesheet(
+        'character.main.attack.1',
+        location.href + 'assets/characters/1-Woodcutter/Woodcutter_attack1.png',
+        {
+          frameWidth: 45,
+          frameHeight: 38,
+          margin: 0,
+          spacing: 3,
+          endFrame: 6
+        }
+      )
       this.$preload()
     }
     /**

@@ -6,17 +6,16 @@ import updateFondo from './update-fondo';
 export default class LevelScene1 extends LevelScene {
 
   constructor() {
-    const sceneConfig: Phaser.Types.Scenes.SettingsConfig = {
+    super({
       active: false,
       visible: false,
       key: 'main-scene',
-    };
-    super(sceneConfig);
+    });
   }
 
 
   /* preload part */
-  public preload() {
+  $preload = () => {
     // cargar fondo
     this.load.image('fondo.1', location.href + 'assets/background/PNG/Cartoon_Forest_BG_01/Layers/Sky.png');
     this.load.image('fondo.2', location.href + 'assets/background/PNG/Cartoon_Forest_BG_01/Layers/BG_Decor.png');
@@ -24,35 +23,12 @@ export default class LevelScene1 extends LevelScene {
     this.load.image('fondo.4', location.href + 'assets/background/PNG/Cartoon_Forest_BG_01/Layers/Foreground.png');
     this.load.image('fondo.5', location.href + 'assets/background/PNG/Cartoon_Forest_BG_01/Layers/Ground.png');
 
-
-    this.load.spritesheet(
-      'character.main.idle',
-      location.href + 'assets/characters/1-Woodcutter/Woodcutter_idle.png',
-      {
-        frameWidth: 27,
-        frameHeight: 32,
-        margin: 0,
-        spacing: 21,
-        endFrame: 4
-      }
-    )
-    this.load.spritesheet(
-      'character.main.attack.1',
-      location.href + 'assets/characters/1-Woodcutter/Woodcutter_attack1.png',
-      {
-        frameWidth: 45,
-        frameHeight: 38,
-        margin: 0,
-        spacing: 3,
-        endFrame: 6
-      }
-    )
   }
 
 
 
   /* create part */
-  public create() {
+  $create = () => {
     let center = {
       x: this.scale.width / 2,
       y: this.scale.height / 2,
@@ -80,7 +56,7 @@ export default class LevelScene1 extends LevelScene {
 
 
   /* update part */
-  public update() {
+  $update = () => {
 
     let camera = { x: this.cameras.main.scrollX, y: this.cameras.main.scrollY };
 
