@@ -1,6 +1,5 @@
 import LevelScene from './level-scene';
 import cargarFondo from './cargar-fondo';
-import cargarMainCharacter from './cargar-main-character';
 import updateFondo from './update-fondo';
 
 export default class LevelScene1 extends LevelScene {
@@ -38,7 +37,7 @@ export default class LevelScene1 extends LevelScene {
 
     // this.physics.world.gravity.y = 100;
 
-    cargarMainCharacter(this)
+    this.cargarMainCharacter()
 
     var camera = this.cameras.main
 
