@@ -1,5 +1,9 @@
+import LevelScene from './level-scene';
+import cargarFondo from './cargar-fondo';
+import cargarMainCharacter from './cargar-main-character';
+import updateFondo from './update-fondo';
 
-class LevelScene1 extends Phaser.Scene {
+export default class LevelScene1 extends LevelScene {
 
   constructor() {
     const sceneConfig: Phaser.Types.Scenes.SettingsConfig = {

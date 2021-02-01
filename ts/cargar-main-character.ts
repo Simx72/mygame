@@ -1,4 +1,5 @@
-function cargarMainCharacter(game: LevelScene1) {
+import LevelScene from './level-scene';
+export default function cargarMainCharacter(game: LevelScene) {
 
   /* CREATE */
   var mainChar = game.object(

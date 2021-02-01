@@ -1,3 +1,4 @@
+import LevelScene1 from './main-scene';
 /// <reference path="../phaser/typings/phaser.d.ts" />
 
 const gameConfig: Phaser.Types.Core.GameConfig = {
@@ -21,7 +22,7 @@ const gameConfig: Phaser.Types.Core.GameConfig = {
     }
   },
 
-  scene: LevelScene1,
+  scene: [LevelScene1],
 
   physics: {
     default: 'arcade',

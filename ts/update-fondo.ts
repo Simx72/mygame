@@ -1,4 +1,5 @@
-function updateFondo(game: LevelScene1) {
+import LevelScene from './level-scene';
+export default function updateFondo(game: LevelScene) {
 
   let camera = { x: game.cameras.main.scrollX, y: game.cameras.main.scrollY };
 

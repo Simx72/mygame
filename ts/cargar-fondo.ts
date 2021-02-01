@@ -1,4 +1,5 @@
-function cargarFondo(game: LevelScene1) {
+import LevelScene from "./level-scene";
+export default function cargarFondo(game: LevelScene) {
 
   var fondo1 = game.object(
     'fondo.1',
