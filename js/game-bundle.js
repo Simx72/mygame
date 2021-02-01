@@ -454,4 +454,4 @@ define("ui-scene", ["require", "exports", "default-scene"], function (require, e
     }(default_scene_2.default));
     exports.default = UIScene;
 });
-//# sourceMappingURL=bundle.js.map
+//# sourceMappingURL=game-bundle.js.map
