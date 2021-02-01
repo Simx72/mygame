@@ -12,33 +12,7 @@ export default class LevelScene1 extends LevelScene {
       key: 'main-scene',
     };
     super(sceneConfig);
-    this.objects = {};
   }
-
-  object<T extends Phaser.GameObjects.GameObject>(id: string, val?: T | Phaser.GameObjects.GameObject): T {
-    if (typeof val == "undefined") {
-
-      return <T>this.objects[id];
-
-    } else {
-
-      this.objects[id] = val;
-
-      return <T>this.objects[id];
-
-    }
-  }
-
-  objects: {
-    [c: string]: Phaser.GameObjects.GameObject |
-    Phaser.GameObjects.Arc | Phaser.GameObjects.BitmapText |
-    Phaser.GameObjects.Blitter | Phaser.GameObjects.Container |
-    Phaser.GameObjects.Curve | Phaser.GameObjects.DOMElement |
-    Phaser.GameObjects.DisplayList | Phaser.GameObjects.DynamicBitmapText |
-    Phaser.GameObjects.Ellipse | Phaser.GameObjects.Extern |
-    Phaser.GameObjects.Image
-  }
-
 
 
   /* preload part */

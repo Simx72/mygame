@@ -277,18 +277,8 @@ define("main-scene", ["require", "exports", "level-scene", "cargar-fondo", "carg
                 key: 'main-scene',
             };
             _this = _super.call(this, sceneConfig) || this;
-            _this.objects = {};
             return _this;
         }
-        LevelScene1.prototype.object = function (id, val) {
-            if (typeof val == "undefined") {
-                return this.objects[id];
-            }
-            else {
-                this.objects[id] = val;
-                return this.objects[id];
-            }
-        };
         /* preload part */
         LevelScene1.prototype.preload = function () {
             // cargar fondo
