@@ -9,7 +9,7 @@ function updateFondo(game: GameScene) {
   game.object<Phaser.GameObjects.Image>("fondo.3.b").setX(x3 + game.scale.width);
   let x4 = game.object<Phaser.GameObjects.Image>("fondo.4.a").setX(camera.x * 0.16).x;
   game.object<Phaser.GameObjects.Image>("fondo.4.b").setX(x4 + game.scale.width);
-  let x5 = game.object<Phaser.GameObjects.Image>("fondo.5.a").setX(calcularPos(camera.x, 0.25, game.scale.width)).x;
+  let x5 = game.object<Phaser.GameObjects.Image>("fondo.5.a").setX(calcularPos(camera.x, 0.32, game.scale.width)).x;
   game.object<Phaser.GameObjects.Image>("fondo.5.b").setX(x5 + game.scale.width);
 
   if (game.physics.config.debug) {

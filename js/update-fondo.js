@@ -8,7 +8,7 @@ function updateFondo(game) {
     game.object("fondo.3.b").setX(x3 + game.scale.width);
     var x4 = game.object("fondo.4.a").setX(camera.x * 0.16).x;
     game.object("fondo.4.b").setX(x4 + game.scale.width);
-    var x5 = game.object("fondo.5.a").setX(calcularPos(camera.x, 0.25, game.scale.width)).x;
+    var x5 = game.object("fondo.5.a").setX(calcularPos(camera.x, 0.32, game.scale.width)).x;
     game.object("fondo.5.b").setX(x5 + game.scale.width);
     if (game.physics.config.debug) {
         // let texto = this.object<Phaser.GameObjects.Text>('texto.debug');
