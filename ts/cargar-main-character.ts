@@ -27,8 +27,10 @@ function cargarMainCharacter(game: GameScene) {
 
   mainChar.on('animationcomplete', function (anim: { key: string; }, frame: any) {
     let _this = eval("this") as Phaser.GameObjects.Sprite
-    _this.emit('animationcomplete_' + anim.key, anim, frame);
+    _this.emit('anim_end[' + anim.key + ']', anim, frame);
   }, mainChar);
+
+  mainChar.on()
 
   mainChar.anims.play('attack');
 

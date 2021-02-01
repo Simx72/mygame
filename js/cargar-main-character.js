@@ -19,8 +19,9 @@ function cargarMainCharacter(game) {
     mainChar.setScale(2);
     mainChar.on('animationcomplete', function (anim, frame) {
         var _this = eval("this");
-        _this.emit('animationcomplete_' + anim.key, anim, frame);
+        _this.emit('anim_end[' + anim.key + ']', anim, frame);
     }, mainChar);
+    mainChar.on();
     mainChar.anims.play('attack');
     /* CAMERA FOLLOW */
     game.cameras.main.startFollow(mainChar, false, 0.3, 0.3);
