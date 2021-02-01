@@ -17,10 +17,10 @@ function cargarMainCharacter(game) {
         frameRate: 10
     });
     mainChar.setScale(2);
-    mainChar.addListener('animationcomplete', function (a) {
-        eval("console.log('anim complete\\n', this,'\\n', a)");
-        mainChar.anims.play('idle');
-    });
+    mainChar.on('animationcomplete', function (anim, frame) {
+        var _this = eval("this");
+        _this.emit('animationcomplete_' + anim.key, anim, frame);
+    }, mainChar);
     mainChar.anims.play('attack');
     /* CAMERA FOLLOW */
     game.cameras.main.startFollow(mainChar, false, 0.3, 0.3);
