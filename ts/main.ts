@@ -21,7 +21,7 @@ const gameConfig: Phaser.Types.Core.GameConfig = {
     }
   },
 
-  scene: GameScene,
+  scene: LevelScene1,
 
   physics: {
     default: 'arcade',

@@ -1,4 +1,4 @@
-function cargarMainCharacter(game: GameScene) {
+function cargarMainCharacter(game: LevelScene1) {
 
   /* CREATE */
   var mainChar = game.object(

@@ -12,9 +12,9 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var GameScene = /** @class */ (function (_super) {
-    __extends(GameScene, _super);
-    function GameScene() {
+var LevelScene1 = /** @class */ (function (_super) {
+    __extends(LevelScene1, _super);
+    function LevelScene1() {
         var _this = this;
         var sceneConfig = {
             active: false,
@@ -25,7 +25,7 @@ var GameScene = /** @class */ (function (_super) {
         _this.objects = {};
         return _this;
     }
-    GameScene.prototype.object = function (id, val) {
+    LevelScene1.prototype.object = function (id, val) {
         if (typeof val == "undefined") {
             return this.objects[id];
         }
@@ -35,7 +35,7 @@ var GameScene = /** @class */ (function (_super) {
         }
     };
     /* preload part */
-    GameScene.prototype.preload = function () {
+    LevelScene1.prototype.preload = function () {
         // cargar fondo
         this.load.image('fondo.1', location.href + 'assets/background/PNG/Cartoon_Forest_BG_01/Layers/Sky.png');
         this.load.image('fondo.2', location.href + 'assets/background/PNG/Cartoon_Forest_BG_01/Layers/BG_Decor.png');
@@ -58,7 +58,7 @@ var GameScene = /** @class */ (function (_super) {
         });
     };
     /* create part */
-    GameScene.prototype.create = function () {
+    LevelScene1.prototype.create = function () {
         var center = {
             x: this.scale.width / 2,
             y: this.scale.height / 2,
@@ -73,7 +73,7 @@ var GameScene = /** @class */ (function (_super) {
         }
     };
     /* update part */
-    GameScene.prototype.update = function () {
+    LevelScene1.prototype.update = function () {
         var camera = { x: this.cameras.main.scrollX, y: this.cameras.main.scrollY };
         if (this.physics.config.debug) {
             var texto = this.object('texto.debug');
@@ -104,6 +104,6 @@ var GameScene = /** @class */ (function (_super) {
             mainChar.body.setVelocityY(0);
         }
     };
-    return GameScene;
+    return LevelScene1;
 }(Phaser.Scene));
 //# sourceMappingURL=main-scene.js.map

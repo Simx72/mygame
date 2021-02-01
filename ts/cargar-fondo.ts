@@ -1,4 +1,4 @@
-function cargarFondo(game: GameScene) {
+function cargarFondo(game: LevelScene1) {
 
   var fondo1 = game.object(
     'fondo.1',

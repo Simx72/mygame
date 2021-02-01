@@ -18,7 +18,7 @@ var gameConfig = {
             height: 200
         }
     },
-    scene: GameScene,
+    scene: LevelScene1,
     physics: {
         default: 'arcade',
         arcade: {

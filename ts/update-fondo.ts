@@ -1,4 +1,4 @@
-function updateFondo(game: GameScene) {
+function updateFondo(game: LevelScene1) {
 
   let camera = { x: game.cameras.main.scrollX, y: game.cameras.main.scrollY };
 

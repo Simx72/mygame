@@ -1,5 +1,5 @@
 
-class GameScene extends Phaser.Scene {
+class LevelScene1 extends Phaser.Scene {
 
   constructor() {
     const sceneConfig: Phaser.Types.Scenes.SettingsConfig = {
