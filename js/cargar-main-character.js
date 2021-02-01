@@ -21,7 +21,9 @@ function cargarMainCharacter(game) {
         var _this = eval("this");
         _this.emit('anim_end[' + anim.key + ']', anim, frame);
     }, mainChar);
-    mainChar.on();
+    mainChar.on('anim_end[attack]', function () {
+        mainChar.anims.play('idle');
+    });
     mainChar.anims.play('attack');
     /* CAMERA FOLLOW */
     game.cameras.main.startFollow(mainChar, false, 0.3, 0.3);

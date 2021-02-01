@@ -30,7 +30,9 @@ function cargarMainCharacter(game: GameScene) {
     _this.emit('anim_end[' + anim.key + ']', anim, frame);
   }, mainChar);
 
-  mainChar.on()
+  mainChar.on('anim_end[attack]', () => {
+    mainChar.anims.play('idle')
+  })
 
   mainChar.anims.play('attack');
 
