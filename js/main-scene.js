@@ -97,6 +97,7 @@ var GameScene = /** @class */ (function (_super) {
             texto.setPosition(camera.x + 10, camera.y + 10);
             texto.text = "Camera Position\t| x: " + Math.floor(camera.x) + "\t| y: " + Math.floor(camera.y) + "\n";
         }
+        updateFondo(this);
         var mainChar = this.object("character.main");
         var cursorKeys = this.input.keyboard.createCursorKeys();
         if (cursorKeys.right.isDown && cursorKeys.left.isUp) {

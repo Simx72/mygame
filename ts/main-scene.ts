@@ -142,6 +142,8 @@ class GameScene extends Phaser.Scene {
       texto.text = `Camera Position\t| x: ${Math.floor(camera.x)}\t| y: ${Math.floor(camera.y)}\n`;
     }
 
+    updateFondo(this)
+
     var mainChar = this.object<Phaser.Types.Physics.Arcade.ImageWithDynamicBody>("character.main");
 
     const cursorKeys = this.input.keyboard.createCursorKeys();
