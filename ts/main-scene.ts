@@ -84,39 +84,9 @@ class GameScene extends Phaser.Scene {
 
     // this.physics.world.gravity.y = 100;
 
+    cargarMainCharacter(this)
 
-
-    var mainChar = this.object(
-      "character.main",
-      this.add.sprite(center.x, center.y, 'character.main.idle')
-    );
-
-    mainChar.setOrigin(0, 1);
-
-    mainChar.anims.create({
-      key: 'idle',
-      frames: this.anims.generateFrameNumbers('character.main.idle', { start: 0, end: 3 }),
-      frameRate: 10,
-      repeat: -1,
-    })
-
-    mainChar.anims.create({
-      key: 'attack',
-      frames: this.anims.generateFrameNumbers('character.main.attack.1', { start: 0, end: 5 }),
-      frameRate: 10
-    })
-
-    mainChar.setScale(2);
-
-    mainChar.addListener('animationcomplete', () => {
-      mainChar.anims.play('idle');
-    });
-
-    this.physics.add.existing(mainChar);
-
-    mainChar.anims.play('attack');
-
-    var camera = this.cameras.main.startFollow(mainChar, false, 0.3, 0.3)
+    var camera = this.cameras.main
 
     camera.setBounds(0, 0, this.scale.width * 5, 0)
 
