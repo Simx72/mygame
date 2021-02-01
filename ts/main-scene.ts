@@ -118,7 +118,7 @@ class GameScene extends Phaser.Scene {
 
     var camera = this.cameras.main.startFollow(mainChar, false, 0.3, 0.3)
 
-    camera.setBounds(0, 0, this.scale.width * 2, 0)
+    camera.setBounds(0, 0, this.scale.width * 5, 0)
 
     if (this.physics.config.debug) {
       this.object(

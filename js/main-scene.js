@@ -84,7 +84,7 @@ var GameScene = /** @class */ (function (_super) {
         this.physics.add.existing(mainChar);
         mainChar.anims.play('attack');
         var camera = this.cameras.main.startFollow(mainChar, false, 0.3, 0.3);
-        camera.setBounds(0, 0, this.scale.width * 2, 0);
+        camera.setBounds(0, 0, this.scale.width * 5, 0);
         if (this.physics.config.debug) {
             this.object('texto.debug', this.add.text(10, 10, 'Camera Position').setOrigin(0, 0));
         }
