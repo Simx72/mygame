@@ -1,4 +1,3 @@
-"use strict";
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -15,24 +14,28 @@ var __extends = (this && this.__extends) || (function () {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-function calcularPos(camX, scale, width, text) {
-    var x;
-    /* scale = 32% ó 0.32 */
-    var pastoInicio = camX * scale;
-    var pastoFin = pastoInicio + width;
-    var rWidth = width;
-    if (scale != 1)
-        rWidth = width / (1 - scale);
-    var part = Math.floor(camX / rWidth);
-    x = (part * width) + pastoInicio;
-    if (typeof text != "undefined" && text != void 0) {
-        var f = function (x) { return x ? Math.floor(x) : 0; };
-        text.text += "camX: " + f(camX) + " - scale: " + scale + " - width: " + f(width) + "\n";
-        text.text += "pasto inicio: " + f(pastoInicio) + " - pasto fin: " + f(pastoFin) + " - part: " + part + " \n";
-        text.text += "rWidth: " + f(rWidth) + "\n";
+define("calcular-pos", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    function calcularPos(camX, scale, width, text) {
+        var x;
+        var pastoInicio = camX * scale;
+        var pastoFin = pastoInicio + width;
+        var rWidth = width;
+        if (scale != 1)
+            rWidth = width / (1 - scale);
+        var part = Math.floor(camX / rWidth);
+        x = (part * width) + pastoInicio;
+        if (typeof text != "undefined" && text != void 0) {
+            var f = function (x) { return x ? Math.floor(x) : 0; };
+            text.text += "camX: " + f(camX) + " - scale: " + scale + " - width: " + f(width) + "\n";
+            text.text += "pasto inicio: " + f(pastoInicio) + " - pasto fin: " + f(pastoFin) + " - part: " + part + " \n";
+            text.text += "rWidth: " + f(rWidth) + "\n";
+        }
+        return x;
     }
-    return x;
-}
+    exports.default = calcularPos;
+});
 define("default-scene", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
@@ -97,10 +100,47 @@ define("default-scene", ["require", "exports"], function (require, exports) {
     }(Phaser.Scene));
     exports.default = DefaultScene;
 });
-define("level-scene", ["require", "exports", "default-scene"], function (require, exports, default_scene_1) {
+define("cargar-main-character", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    function cargarMainCharacter(game) {
+        /* CREATE */
+        var mainChar = game.object("character.main", game.physics.add.sprite(game.scale.width / 2, game.scale.height / 2, 'character.main.idle'));
+        /* OPTIONS */
+        mainChar.setOrigin(0, 1);
+        /* ANIMS */
+        mainChar.anims.create({
+            key: 'idle',
+            frames: game.anims.generateFrameNumbers('character.main.idle', { start: 0, end: 3 }),
+            frameRate: 10,
+            repeat: -1,
+        });
+        mainChar.anims.create({
+            key: 'attack',
+            frames: game.anims.generateFrameNumbers('character.main.attack.1', { start: 0, end: 5 }),
+            frameRate: 10
+        });
+        mainChar.setScale(2);
+        mainChar.on('animationcomplete', function (anim, frame) {
+            var _this = eval("this");
+            _this.emit('anim_end[' + anim.key + ']', anim, frame);
+        }, mainChar);
+        mainChar.on('anim_end[attack]', function () {
+            mainChar.anims.play('idle');
+        });
+        mainChar.anims.play('attack');
+        /* CAMERA FOLLOW */
+        game.cameras.main.startFollow(mainChar, false, 0.3, 0.3);
+    }
+    exports.default = cargarMainCharacter;
+});
+define("level-scene", ["require", "exports", "default-scene", "cargar-main-character", "cargar-fondo", "calcular-pos"], function (require, exports, default_scene_1, cargar_main_character_1, cargar_fondo_1, calcular_pos_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     default_scene_1 = __importDefault(default_scene_1);
+    cargar_main_character_1 = __importDefault(cargar_main_character_1);
+    cargar_fondo_1 = __importDefault(cargar_fondo_1);
+    calcular_pos_1 = __importDefault(calcular_pos_1);
     /**
      * @class LevelScene
      * creates a level scene (a level for adding platforms and other things)
@@ -111,96 +151,55 @@ define("level-scene", ["require", "exports", "default-scene"], function (require
          * @param config - ethier a scene-key or a settings object
          */
         function LevelScene(config) {
-            var _this_1 = _super.call(this, config) || this;
-            _this_1._object = { object: {}, data: {} };
-            _this_1.$preload = function () { };
-            _this_1.$create = function () { };
-            _this_1.$update = function () { };
-            _this_1.centerX = 0;
-            _this_1.centerY = 0;
+            var _this = _super.call(this, config) || this;
+            _this.calcularPos = calcular_pos_1.default;
+            _this._object = { object: {}, data: {} };
+            _this.$preload = function () { };
+            _this.$create = function () { };
+            _this.$update = function () { };
+            _this.centerX = 0;
+            _this.centerY = 0;
             /**
              * preload
              */
-            _this_1._preload = function () {
-                _this_1.centerX = _this_1.game.scale.width / 2;
-                _this_1.centerY = _this_1.game.scale.height / 2;
-                _this_1.load.spritesheet('character.main.idle', location.href + 'assets/characters/1-Woodcutter/Woodcutter_idle.png', {
+            _this._preload = function () {
+                _this.load.spritesheet('character.main.idle', location.href + 'assets/characters/1-Woodcutter/Woodcutter_idle.png', {
                     frameWidth: 27,
                     frameHeight: 32,
                     margin: 0,
                     spacing: 21,
                     endFrame: 4
                 });
-                _this_1.load.spritesheet('character.main.attack.1', location.href + 'assets/characters/1-Woodcutter/Woodcutter_attack1.png', {
+                _this.load.spritesheet('character.main.attack.1', location.href + 'assets/characters/1-Woodcutter/Woodcutter_attack1.png', {
                     frameWidth: 45,
                     frameHeight: 38,
                     margin: 0,
                     spacing: 3,
                     endFrame: 6
                 });
-                _this_1.$preload();
+                _this.$preload();
             };
             /**
              * create
              */
-            _this_1._create = function () {
-                _this_1.cargarMainCharacter();
-                _this_1.$create();
+            _this._create = function () {
+                _this._cargarMainCharacter();
+                _this.cargarFondo();
+                _this.$create();
             };
             /**
              * update
              */
-            _this_1._update = function () {
-                _this_1.$update();
+            _this._update = function () {
+                _this.$update();
             };
-            return _this_1;
+            return _this;
         }
-        LevelScene.prototype.object = function (id, val) {
-            if (typeof val == "undefined") {
-                return this._object.object[id];
-            }
-            else {
-                this._object.object[id] = val;
-                return this._object.object[id];
-            }
+        LevelScene.prototype._cargarMainCharacter = function () {
+            cargar_main_character_1.default(this);
         };
-        LevelScene.prototype.dato = function (id, val) {
-            if (typeof val == "undefined") {
-                return this._object.data[id];
-            }
-            else {
-                this._object.data[id] = val;
-                return this._object.data[id];
-            }
-        };
-        LevelScene.prototype.cargarMainCharacter = function () {
-            /* CREATE */
-            var mainChar = this.object("character.main", this.physics.add.sprite(this.scale.width / 2, this.scale.height / 2, 'character.main.idle'));
-            /* OPTIONS */
-            mainChar.setOrigin(0, 1);
-            /* ANIMS */
-            mainChar.anims.create({
-                key: 'idle',
-                frames: this.anims.generateFrameNumbers('character.main.idle', { start: 0, end: 3 }),
-                frameRate: 10,
-                repeat: -1,
-            });
-            mainChar.anims.create({
-                key: 'attack',
-                frames: this.anims.generateFrameNumbers('character.main.attack.1', { start: 0, end: 5 }),
-                frameRate: 10
-            });
-            mainChar.setScale(2);
-            mainChar.on('animationcomplete', function (anim, frame) {
-                var _this = eval("this");
-                _this.emit('anim_end[' + anim.key + ']', anim, frame);
-            }, mainChar);
-            mainChar.on('anim_end[attack]', function () {
-                mainChar.anims.play('idle');
-            });
-            mainChar.anims.play('attack');
-            /* CAMERA FOLLOW */
-            this.cameras.main.startFollow(mainChar, false, 0.3, 0.3);
+        LevelScene.prototype.cargarFondo = function () {
+            cargar_fondo_1.default(this);
         };
         return LevelScene;
     }(default_scene_1.default));
@@ -256,13 +255,13 @@ define("update-fondo", ["require", "exports"], function (require, exports) {
     function updateFondo(game) {
         var camera = { x: game.cameras.main.scrollX, y: game.cameras.main.scrollY };
         game.object("fondo.1").setPosition(camera.x * 1 - 100, camera.y - 100);
-        var x2 = game.object("fondo.2.a").setX(calcularPos(camera.x, 0.04, game.scale.width)).x;
+        var x2 = game.object("fondo.2.a").setX(game.calcularPos(camera.x, 0.04, game.scale.width)).x;
         game.object("fondo.2.b").setX(x2 + game.scale.width);
-        var x3 = game.object("fondo.3.a").setX(calcularPos(camera.x, 0.08, game.scale.width)).x;
+        var x3 = game.object("fondo.3.a").setX(game.calcularPos(camera.x, 0.08, game.scale.width)).x;
         game.object("fondo.3.b").setX(x3 + game.scale.width);
-        var x4 = game.object("fondo.4.a").setX(calcularPos(camera.x, 0.16, game.scale.width)).x;
+        var x4 = game.object("fondo.4.a").setX(game.calcularPos(camera.x, 0.16, game.scale.width)).x;
         game.object("fondo.4.b").setX(x4 + game.scale.width);
-        var x5 = game.object("fondo.5.a").setX(calcularPos(camera.x, 0.32, game.scale.width)).x;
+        var x5 = game.object("fondo.5.a").setX(game.calcularPos(camera.x, 0.32, game.scale.width)).x;
         game.object("fondo.5.b").setX(x5 + game.scale.width);
         if (game.physics.config.debug) {
             // let texto = this.object<Phaser.GameObjects.Text>('texto.debug');
@@ -270,11 +269,10 @@ define("update-fondo", ["require", "exports"], function (require, exports) {
     }
     exports.default = updateFondo;
 });
-define("main-scene", ["require", "exports", "level-scene", "cargar-fondo", "update-fondo"], function (require, exports, level_scene_1, cargar_fondo_1, update_fondo_1) {
+define("main-scene", ["require", "exports", "level-scene", "update-fondo"], function (require, exports, level_scene_1, update_fondo_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     level_scene_1 = __importDefault(level_scene_1);
-    cargar_fondo_1 = __importDefault(cargar_fondo_1);
     update_fondo_1 = __importDefault(update_fondo_1);
     var LevelScene1 = /** @class */ (function (_super) {
         __extends(LevelScene1, _super);
@@ -299,9 +297,7 @@ define("main-scene", ["require", "exports", "level-scene", "cargar-fondo", "upda
                     x: _this.scale.width / 2,
                     y: _this.scale.height / 2,
                 };
-                cargar_fondo_1.default(_this);
                 // this.physics.world.gravity.y = 100;
-                _this.cargarMainCharacter();
                 var camera = _this.cameras.main;
                 camera.setBounds(0, 0, _this.scale.width * 5, 0);
                 if (_this.physics.config.debug) {
@@ -380,6 +376,27 @@ define("main", ["require", "exports", "main-scene"], function (require, exports,
         backgroundColor: '#000000'
     };
     var phaserGame = new Phaser.Game(gameConfig);
+});
+define("preload-character", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    function preloadCharacter(game) {
+        game.load.spritesheet('character.main.idle', location.href + 'assets/characters/1-Woodcutter/Woodcutter_idle.png', {
+            frameWidth: 27,
+            frameHeight: 32,
+            margin: 0,
+            spacing: 21,
+            endFrame: 4
+        });
+        game.load.spritesheet('character.main.attack.1', location.href + 'assets/characters/1-Woodcutter/Woodcutter_attack1.png', {
+            frameWidth: 45,
+            frameHeight: 38,
+            margin: 0,
+            spacing: 3,
+            endFrame: 6
+        });
+    }
+    exports.default = preloadCharacter;
 });
 define("ui-scene", ["require", "exports", "default-scene"], function (require, exports, default_scene_2) {
     "use strict";

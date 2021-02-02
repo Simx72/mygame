@@ -5,7 +5,7 @@ export default function updateFondo(game: LevelScene) {
 
   game.object<Phaser.GameObjects.Image>("fondo.1").setPosition(camera.x * 1 - 100, camera.y - 100);
   let x2 = game.object<Phaser.GameObjects.Image>("fondo.2.a").setX(
-    calcularPos(
+    game.calcularPos(
       camera.x, 0.04,
       game.scale.width
     )
@@ -14,7 +14,7 @@ export default function updateFondo(game: LevelScene) {
     x2 + game.scale.width
   );
   let x3 = game.object<Phaser.GameObjects.Image>("fondo.3.a").setX(
-    calcularPos(
+    game.calcularPos(
       camera.x, 0.08,
       game.scale.width
     )
@@ -23,7 +23,7 @@ export default function updateFondo(game: LevelScene) {
     x3 + game.scale.width
   );
   let x4 = game.object<Phaser.GameObjects.Image>("fondo.4.a").setX(
-    calcularPos(
+    game.calcularPos(
       camera.x, 0.16, game.scale.width
     )
   ).x;
@@ -31,7 +31,7 @@ export default function updateFondo(game: LevelScene) {
     x4 + game.scale.width
   );
   let x5 = game.object<Phaser.GameObjects.Image>("fondo.5.a").setX(
-    calcularPos(
+    game.calcularPos(
       camera.x, 0.32, game.scale.width
     )
   ).x;
