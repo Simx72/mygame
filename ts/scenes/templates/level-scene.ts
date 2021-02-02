@@ -3,6 +3,7 @@ import cargarMainCharacter from '../../functions/cargar-main-character';
 import cargarFondo from '../../functions/cargar-fondo';
 import calcularPos from '../../functions/calcular-pos';
 import preloadCharacter from '../../functions/preload-character';
+import updateFondo from '../../functions/update-fondo';
 /**
  * @class LevelScene
  * creates a level scene (a level for adding platforms and other things)
@@ -42,6 +43,7 @@ export default class LevelScene extends DefaultScene {
      * update
      */
     this._update = () => {
+      this._updateFondo()
       this.$update()
     }
 
@@ -72,6 +74,10 @@ export default class LevelScene extends DefaultScene {
 
   cargarFondo() {
     cargarFondo(this)
+  }
+
+  _updateFondo() {
+    updateFondo(this)
   }
 
   calcularPos = calcularPos

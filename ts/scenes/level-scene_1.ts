@@ -1,5 +1,4 @@
 import LevelScene from './templates/level-scene';
-import updateFondo from '../functions/update-fondo';
 
 export default class LevelScene_1 extends LevelScene {
 
@@ -50,7 +49,7 @@ export default class LevelScene_1 extends LevelScene {
       texto.text = `Camera Position\t| x: ${Math.floor(camera.x)}\t| y: ${Math.floor(camera.y)}\n`;
     }
 
-    updateFondo(this)
+    this._updateFondo()
 
     var mainChar = this.object<Phaser.Types.Physics.Arcade.ImageWithDynamicBody>("character.main");
 

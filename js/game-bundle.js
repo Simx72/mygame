@@ -1,3 +1,4 @@
+"use strict";
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -199,7 +200,27 @@ define("functions/preload-character", ["require", "exports"], function (require,
     }
     exports.default = preloadCharacter;
 });
-define("scenes/templates/level-scene", ["require", "exports", "scenes/templates/default-scene", "functions/cargar-main-character", "functions/cargar-fondo", "functions/calcular-pos", "functions/preload-character"], function (require, exports, default_scene_1, cargar_main_character_1, cargar_fondo_1, calcular_pos_1, preload_character_1) {
+define("functions/update-fondo", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    function updateFondo(game) {
+        var camera = { x: game.cameras.main.scrollX, y: game.cameras.main.scrollY };
+        game.object("fondo.1").setPosition(camera.x * 1 - 100, camera.y - 100);
+        var x2 = game.object("fondo.2.a").setX(game.calcularPos(camera.x, 0.04, game.scale.width)).x;
+        game.object("fondo.2.b").setX(x2 + game.scale.width);
+        var x3 = game.object("fondo.3.a").setX(game.calcularPos(camera.x, 0.08, game.scale.width)).x;
+        game.object("fondo.3.b").setX(x3 + game.scale.width);
+        var x4 = game.object("fondo.4.a").setX(game.calcularPos(camera.x, 0.16, game.scale.width)).x;
+        game.object("fondo.4.b").setX(x4 + game.scale.width);
+        var x5 = game.object("fondo.5.a").setX(game.calcularPos(camera.x, 0.32, game.scale.width)).x;
+        game.object("fondo.5.b").setX(x5 + game.scale.width);
+        if (game.physics.config.debug) {
+            // let texto = this.object<Phaser.GameObjects.Text>('texto.debug');
+        }
+    }
+    exports.default = updateFondo;
+});
+define("scenes/templates/level-scene", ["require", "exports", "scenes/templates/default-scene", "functions/cargar-main-character", "functions/cargar-fondo", "functions/calcular-pos", "functions/preload-character", "functions/update-fondo"], function (require, exports, default_scene_1, cargar_main_character_1, cargar_fondo_1, calcular_pos_1, preload_character_1, update_fondo_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     default_scene_1 = __importDefault(default_scene_1);
@@ -207,6 +228,7 @@ define("scenes/templates/level-scene", ["require", "exports", "scenes/templates/
     cargar_fondo_1 = __importDefault(cargar_fondo_1);
     calcular_pos_1 = __importDefault(calcular_pos_1);
     preload_character_1 = __importDefault(preload_character_1);
+    update_fondo_1 = __importDefault(update_fondo_1);
     /**
      * @class LevelScene
      * creates a level scene (a level for adding platforms and other things)
@@ -245,6 +267,7 @@ define("scenes/templates/level-scene", ["require", "exports", "scenes/templates/
              * update
              */
             _this._update = function () {
+                _this._updateFondo();
                 _this.$update();
             };
             return _this;
@@ -254,6 +277,9 @@ define("scenes/templates/level-scene", ["require", "exports", "scenes/templates/
         };
         LevelScene.prototype.cargarFondo = function () {
             cargar_fondo_1.default(this);
+        };
+        LevelScene.prototype._updateFondo = function () {
+            update_fondo_1.default(this);
         };
         LevelScene.prototype.preloadFondo = function (fondo) {
             // cargar fondo
@@ -280,31 +306,10 @@ define("scenes/templates/level-scene", ["require", "exports", "scenes/templates/
     }(default_scene_1.default));
     exports.default = LevelScene;
 });
-define("functions/update-fondo", ["require", "exports"], function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    function updateFondo(game) {
-        var camera = { x: game.cameras.main.scrollX, y: game.cameras.main.scrollY };
-        game.object("fondo.1").setPosition(camera.x * 1 - 100, camera.y - 100);
-        var x2 = game.object("fondo.2.a").setX(game.calcularPos(camera.x, 0.04, game.scale.width)).x;
-        game.object("fondo.2.b").setX(x2 + game.scale.width);
-        var x3 = game.object("fondo.3.a").setX(game.calcularPos(camera.x, 0.08, game.scale.width)).x;
-        game.object("fondo.3.b").setX(x3 + game.scale.width);
-        var x4 = game.object("fondo.4.a").setX(game.calcularPos(camera.x, 0.16, game.scale.width)).x;
-        game.object("fondo.4.b").setX(x4 + game.scale.width);
-        var x5 = game.object("fondo.5.a").setX(game.calcularPos(camera.x, 0.32, game.scale.width)).x;
-        game.object("fondo.5.b").setX(x5 + game.scale.width);
-        if (game.physics.config.debug) {
-            // let texto = this.object<Phaser.GameObjects.Text>('texto.debug');
-        }
-    }
-    exports.default = updateFondo;
-});
-define("scenes/level-scene_1", ["require", "exports", "scenes/templates/level-scene", "functions/update-fondo"], function (require, exports, level_scene_1, update_fondo_1) {
+define("scenes/level-scene_1", ["require", "exports", "scenes/templates/level-scene"], function (require, exports, level_scene_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     level_scene_1 = __importDefault(level_scene_1);
-    update_fondo_1 = __importDefault(update_fondo_1);
     var LevelScene_1 = /** @class */ (function (_super) {
         __extends(LevelScene_1, _super);
         function LevelScene_1() {
@@ -334,7 +339,7 @@ define("scenes/level-scene_1", ["require", "exports", "scenes/templates/level-sc
                     texto.setPosition(camera.x + 10, camera.y + 10);
                     texto.text = "Camera Position\t| x: " + Math.floor(camera.x) + "\t| y: " + Math.floor(camera.y) + "\n";
                 }
-                update_fondo_1.default(_this);
+                _this._updateFondo();
                 var mainChar = _this.object("character.main");
                 var cursorKeys = _this.input.keyboard.createCursorKeys();
                 if (cursorKeys.right.isDown && cursorKeys.left.isUp) {
