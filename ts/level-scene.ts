@@ -20,6 +20,7 @@ export default class LevelScene extends DefaultScene {
     this.$update = () => { };
     this.centerX = 0;
     this.centerY = 0;
+    this.dato('sistema.fondo')
     /**
      * preload
      */
@@ -72,5 +73,18 @@ export default class LevelScene extends DefaultScene {
   }
 
   calcularPos = calcularPos
+
+  preloadFondo(fondo: 1 | 2 | 3 | 4) {
+    // cargar fondo
+    if (fondo == 1 || fondo == 2 || fondo == 3 || fondo == 4) {
+      this.load.image('fondo.1', `assets/background/PNG/Cartoon_Forest_BG_0${fondo}/Layers/Sky.png`);
+      this.load.image('fondo.2', `assets/background/PNG/Cartoon_Forest_BG_0${fondo}/Layers/BG_Decor.png`);
+      this.load.image('fondo.3', `assets/background/PNG/Cartoon_Forest_BG_0${fondo}/Layers/Middle_Decor.png`);
+      this.load.image('fondo.4', `assets/background/PNG/Cartoon_Forest_BG_0${fondo}/Layers/Foreground.png`);
+      this.load.image('fondo.5', `assets/background/PNG/Cartoon_Forest_BG_0${fondo}/Layers/Ground.png`);
+    } else {
+      throw new TypeError(`'parameter 'fondo' of type [ 1 | 2 | 3 | 4 ] is not assignable to ${fondo}`)
+    }
+  }
 
 }

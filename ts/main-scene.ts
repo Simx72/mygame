@@ -14,13 +14,7 @@ export default class LevelScene1 extends LevelScene {
 
   /* preload part */
   $preload = () => {
-    // cargar fondo
-    this.load.image('fondo.1', location.href + 'assets/background/PNG/Cartoon_Forest_BG_01/Layers/Sky.png');
-    this.load.image('fondo.2', location.href + 'assets/background/PNG/Cartoon_Forest_BG_01/Layers/BG_Decor.png');
-    this.load.image('fondo.3', location.href + 'assets/background/PNG/Cartoon_Forest_BG_01/Layers/Middle_Decor.png');
-    this.load.image('fondo.4', location.href + 'assets/background/PNG/Cartoon_Forest_BG_01/Layers/Foreground.png');
-    this.load.image('fondo.5', location.href + 'assets/background/PNG/Cartoon_Forest_BG_01/Layers/Ground.png');
-
+    this.preloadFondo(1)
   }
 
 

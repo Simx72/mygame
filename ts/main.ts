@@ -1,7 +1,7 @@
 /// <reference path="../phaser/typings/phaser.d.ts" />
 import LevelScene1 from './main-scene';
 
-const gameConfig: Phaser.Types.Core.GameConfig = {
+export const gameConfig: Phaser.Types.Core.GameConfig = {
   title: 'Juego ejemplo',
 
   type: Phaser.AUTO,
@@ -36,4 +36,4 @@ const gameConfig: Phaser.Types.Core.GameConfig = {
 
 };
 
-var phaserGame = new Phaser.Game(gameConfig);
+export default (new Phaser.Game(gameConfig));

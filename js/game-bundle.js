@@ -181,6 +181,7 @@ define("level-scene", ["require", "exports", "default-scene", "cargar-main-chara
             _this.$update = function () { };
             _this.centerX = 0;
             _this.centerY = 0;
+            _this.dato('sistema.fondo');
             /**
              * preload
              */
@@ -209,6 +210,19 @@ define("level-scene", ["require", "exports", "default-scene", "cargar-main-chara
         };
         LevelScene.prototype.cargarFondo = function () {
             cargar_fondo_1.default(this);
+        };
+        LevelScene.prototype.preloadFondo = function (fondo) {
+            // cargar fondo
+            if (fondo == 1 || fondo == 2 || fondo == 3 || fondo == 4) {
+                this.load.image('fondo.1', "assets/background/PNG/Cartoon_Forest_BG_0" + fondo + "/Layers/Sky.png");
+                this.load.image('fondo.2', "assets/background/PNG/Cartoon_Forest_BG_0" + fondo + "/Layers/BG_Decor.png");
+                this.load.image('fondo.3', "assets/background/PNG/Cartoon_Forest_BG_0" + fondo + "/Layers/Middle_Decor.png");
+                this.load.image('fondo.4', "assets/background/PNG/Cartoon_Forest_BG_0" + fondo + "/Layers/Foreground.png");
+                this.load.image('fondo.5', "assets/background/PNG/Cartoon_Forest_BG_0" + fondo + "/Layers/Ground.png");
+            }
+            else {
+                throw new TypeError("'parameter 'fondo' of type [ 1 | 2 | 3 | 4 ] is not assignable to " + fondo);
+            }
         };
         return LevelScene;
     }(default_scene_1.default));
@@ -293,12 +307,7 @@ define("main-scene", ["require", "exports", "level-scene", "update-fondo"], func
             }) || this;
             /* preload part */
             _this.$preload = function () {
-                // cargar fondo
-                _this.load.image('fondo.1', location.href + 'assets/background/PNG/Cartoon_Forest_BG_01/Layers/Sky.png');
-                _this.load.image('fondo.2', location.href + 'assets/background/PNG/Cartoon_Forest_BG_01/Layers/BG_Decor.png');
-                _this.load.image('fondo.3', location.href + 'assets/background/PNG/Cartoon_Forest_BG_01/Layers/Middle_Decor.png');
-                _this.load.image('fondo.4', location.href + 'assets/background/PNG/Cartoon_Forest_BG_01/Layers/Foreground.png');
-                _this.load.image('fondo.5', location.href + 'assets/background/PNG/Cartoon_Forest_BG_01/Layers/Ground.png');
+                _this.preloadFondo(1);
             };
             /* create part */
             _this.$create = function () {
@@ -350,8 +359,9 @@ define("main-scene", ["require", "exports", "level-scene", "update-fondo"], func
 define("main", ["require", "exports", "main-scene"], function (require, exports, main_scene_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    exports.gameConfig = void 0;
     main_scene_1 = __importDefault(main_scene_1);
-    var gameConfig = {
+    exports.gameConfig = {
         title: 'Juego ejemplo',
         type: Phaser.AUTO,
         scale: {
@@ -379,7 +389,7 @@ define("main", ["require", "exports", "main-scene"], function (require, exports,
         parent: 'game',
         backgroundColor: '#000000'
     };
-    var phaserGame = new Phaser.Game(gameConfig);
+    exports.default = (new Phaser.Game(exports.gameConfig));
 });
 define("ui-scene", ["require", "exports", "default-scene"], function (require, exports, default_scene_2) {
     "use strict";
