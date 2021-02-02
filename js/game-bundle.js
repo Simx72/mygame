@@ -459,7 +459,7 @@ define("scenes/start-scene", ["require", "exports", "scenes/templates/ui-scene"]
                 var btnstart = boton.start.children.getArray()[0];
                 btnstart.on('pointerdown', function () {
                     btnstart.setFillStyle(0xFFFFFF);
-                    _this.game.scene.stop('start-scene').run('level-scene.1');
+                    _this.dato('iniciar', true);
                     _this.game.canvas.style.cursor = 'default';
                 })
                     .on('pointerover', function () {
@@ -471,6 +471,7 @@ define("scenes/start-scene", ["require", "exports", "scenes/templates/ui-scene"]
                     btnstart.setFillStyle(0xFFFFFF);
                 });
                 _this.dato('iniciado', false);
+                _this.dato('iniciar', false);
             };
             _this.$update = function () {
                 var fondo1 = _this.object('fondo.1');
@@ -485,6 +486,12 @@ define("scenes/start-scene", ["require", "exports", "scenes/templates/ui-scene"]
                 }
                 else {
                     _this.dato('iniciado', true);
+                }
+                if (_this.dato('iniciar')) {
+                    fondo1.alpha = fondo2.alpha -= 0.02;
+                    if (fondo1.alpha <= 0) {
+                        _this.game.scene.stop('start-scene').run('level-scene.1');
+                    }
                 }
             };
             return _this;

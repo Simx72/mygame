@@ -87,7 +87,7 @@ export default class StartScene extends UIScene {
     let btnstart = <Phaser.GameObjects.Rectangle>boton.start.children.getArray()[0]
     btnstart.on('pointerdown', () => {
       btnstart.setFillStyle(0xFFFFFF)
-      this.game.scene.stop('start-scene').run('level-scene.1')
+      this.dato('iniciar', true)
       this.game.canvas.style.cursor = 'default'
     })
       .on('pointerover', () => {
@@ -101,6 +101,7 @@ export default class StartScene extends UIScene {
 
 
     this.dato('iniciado', false)
+    this.dato('iniciar', false)
 
   }
 
@@ -119,6 +120,14 @@ export default class StartScene extends UIScene {
       fondo2.alpha = (fondo1.alpha += 0.008);
     } else {
       this.dato('iniciado', true)
+    }
+
+
+    if (this.dato('iniciar')) {
+      fondo1.alpha = fondo2.alpha -= 0.02;
+      if (fondo1.alpha <= 0) {
+        this.game.scene.stop('start-scene').run('level-scene.1')
+      }
     }
   }
 
