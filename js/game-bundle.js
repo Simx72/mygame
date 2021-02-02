@@ -14,29 +14,7 @@ var __extends = (this && this.__extends) || (function () {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-define("calcular-pos", ["require", "exports"], function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    function calcularPos(camX, scale, width, text) {
-        var x;
-        var pastoInicio = camX * scale;
-        var pastoFin = pastoInicio + width;
-        var rWidth = width;
-        if (scale != 1)
-            rWidth = width / (1 - scale);
-        var part = Math.floor(camX / rWidth);
-        x = (part * width) + pastoInicio;
-        if (typeof text != "undefined" && text != void 0) {
-            var f = function (x) { return x ? Math.floor(x) : 0; };
-            text.text += "camX: " + f(camX) + " - scale: " + scale + " - width: " + f(width) + "\n";
-            text.text += "pasto inicio: " + f(pastoInicio) + " - pasto fin: " + f(pastoFin) + " - part: " + part + " \n";
-            text.text += "rWidth: " + f(rWidth) + "\n";
-        }
-        return x;
-    }
-    exports.default = calcularPos;
-});
-define("default-scene", ["require", "exports"], function (require, exports) {
+define("scenes/templates/default-scene", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     /**
@@ -100,7 +78,7 @@ define("default-scene", ["require", "exports"], function (require, exports) {
     }(Phaser.Scene));
     exports.default = DefaultScene;
 });
-define("cargar-main-character", ["require", "exports"], function (require, exports) {
+define("functions/cargar-main-character", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     function cargarMainCharacter(game) {
@@ -134,7 +112,73 @@ define("cargar-main-character", ["require", "exports"], function (require, expor
     }
     exports.default = cargarMainCharacter;
 });
-define("preload-character", ["require", "exports"], function (require, exports) {
+define("functions/cargar-fondo", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    function cargarFondo(game) {
+        var fondo1 = game.object('fondo.1', game.add.image(0, 0, 'fondo.1'));
+        var fondo2a = game.object('fondo.2.a', game.add.image(0, 0, 'fondo.2'));
+        var fondo2b = game.object('fondo.2.b', game.add.image(0, 0, 'fondo.2'));
+        var fondo3a = game.object('fondo.3.a', game.add.image(0, 0, 'fondo.3'));
+        var fondo3b = game.object('fondo.3.b', game.add.image(0, 0, 'fondo.3'));
+        var fondo4a = game.object('fondo.4.a', game.add.image(0, 0, 'fondo.4'));
+        var fondo4b = game.object('fondo.4.b', game.add.image(0, 0, 'fondo.4'));
+        var fondo5a = game.object('fondo.5.a', game.add.image(0, 0, 'fondo.5', 0));
+        var fondo5b = game.object('fondo.5.b', game.add.image(0 + game.game.scale.width, 0, 'fondo.5'));
+        fondo1.displayWidth = game.scale.width + 200;
+        fondo2a.displayWidth = game.scale.width;
+        fondo2b.displayWidth = game.scale.width;
+        fondo3a.displayWidth = game.scale.width;
+        fondo3b.displayWidth = game.scale.width;
+        fondo4a.displayWidth = game.scale.width;
+        fondo4b.displayWidth = game.scale.width;
+        fondo5a.displayWidth = game.scale.width;
+        fondo5b.displayWidth = game.scale.width;
+        fondo5b.displayWidth = game.scale.width;
+        fondo1.displayHeight = game.scale.height + 200;
+        fondo2a.displayHeight = game.scale.height;
+        fondo2b.displayHeight = game.scale.height;
+        fondo3a.displayHeight = game.scale.height;
+        fondo3b.displayHeight = game.scale.height;
+        fondo4a.displayHeight = game.scale.height;
+        fondo4b.displayHeight = game.scale.height;
+        fondo5a.displayHeight = game.scale.height;
+        fondo5b.displayHeight = game.scale.height;
+        fondo1.setOrigin(0, 0);
+        fondo2a.setOrigin(0, 0);
+        fondo2b.setOrigin(0, 0);
+        fondo3a.setOrigin(0, 0);
+        fondo3b.setOrigin(0, 0);
+        fondo4a.setOrigin(0, 0);
+        fondo4b.setOrigin(0, 0);
+        fondo5a.setOrigin(0, 0);
+        fondo5b.setOrigin(0, 0);
+    }
+    exports.default = cargarFondo;
+});
+define("functions/calcular-pos", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    function calcularPos(camX, scale, width, text) {
+        var x;
+        var pastoInicio = camX * scale;
+        var pastoFin = pastoInicio + width;
+        var rWidth = width;
+        if (scale != 1)
+            rWidth = width / (1 - scale);
+        var part = Math.floor(camX / rWidth);
+        x = (part * width) + pastoInicio;
+        if (typeof text != "undefined" && text != void 0) {
+            var f = function (x) { return x ? Math.floor(x) : 0; };
+            text.text += "camX: " + f(camX) + " - scale: " + scale + " - width: " + f(width) + "\n";
+            text.text += "pasto inicio: " + f(pastoInicio) + " - pasto fin: " + f(pastoFin) + " - part: " + part + " \n";
+            text.text += "rWidth: " + f(rWidth) + "\n";
+        }
+        return x;
+    }
+    exports.default = calcularPos;
+});
+define("functions/preload-character", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     function preloadCharacter(game) {
@@ -155,7 +199,7 @@ define("preload-character", ["require", "exports"], function (require, exports) 
     }
     exports.default = preloadCharacter;
 });
-define("level-scene", ["require", "exports", "default-scene", "cargar-main-character", "cargar-fondo", "calcular-pos", "preload-character"], function (require, exports, default_scene_1, cargar_main_character_1, cargar_fondo_1, calcular_pos_1, preload_character_1) {
+define("scenes/templates/level-scene", ["require", "exports", "scenes/templates/default-scene", "functions/cargar-main-character", "functions/cargar-fondo", "functions/calcular-pos", "functions/preload-character"], function (require, exports, default_scene_1, cargar_main_character_1, cargar_fondo_1, calcular_pos_1, preload_character_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     default_scene_1 = __importDefault(default_scene_1);
@@ -236,51 +280,7 @@ define("level-scene", ["require", "exports", "default-scene", "cargar-main-chara
     }(default_scene_1.default));
     exports.default = LevelScene;
 });
-define("cargar-fondo", ["require", "exports"], function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    function cargarFondo(game) {
-        var fondo1 = game.object('fondo.1', game.add.image(0, 0, 'fondo.1'));
-        var fondo2a = game.object('fondo.2.a', game.add.image(0, 0, 'fondo.2'));
-        var fondo2b = game.object('fondo.2.b', game.add.image(0, 0, 'fondo.2'));
-        var fondo3a = game.object('fondo.3.a', game.add.image(0, 0, 'fondo.3'));
-        var fondo3b = game.object('fondo.3.b', game.add.image(0, 0, 'fondo.3'));
-        var fondo4a = game.object('fondo.4.a', game.add.image(0, 0, 'fondo.4'));
-        var fondo4b = game.object('fondo.4.b', game.add.image(0, 0, 'fondo.4'));
-        var fondo5a = game.object('fondo.5.a', game.add.image(0, 0, 'fondo.5', 0));
-        var fondo5b = game.object('fondo.5.b', game.add.image(0 + game.game.scale.width, 0, 'fondo.5'));
-        fondo1.displayWidth = game.scale.width + 200;
-        fondo2a.displayWidth = game.scale.width;
-        fondo2b.displayWidth = game.scale.width;
-        fondo3a.displayWidth = game.scale.width;
-        fondo3b.displayWidth = game.scale.width;
-        fondo4a.displayWidth = game.scale.width;
-        fondo4b.displayWidth = game.scale.width;
-        fondo5a.displayWidth = game.scale.width;
-        fondo5b.displayWidth = game.scale.width;
-        fondo5b.displayWidth = game.scale.width;
-        fondo1.displayHeight = game.scale.height + 200;
-        fondo2a.displayHeight = game.scale.height;
-        fondo2b.displayHeight = game.scale.height;
-        fondo3a.displayHeight = game.scale.height;
-        fondo3b.displayHeight = game.scale.height;
-        fondo4a.displayHeight = game.scale.height;
-        fondo4b.displayHeight = game.scale.height;
-        fondo5a.displayHeight = game.scale.height;
-        fondo5b.displayHeight = game.scale.height;
-        fondo1.setOrigin(0, 0);
-        fondo2a.setOrigin(0, 0);
-        fondo2b.setOrigin(0, 0);
-        fondo3a.setOrigin(0, 0);
-        fondo3b.setOrigin(0, 0);
-        fondo4a.setOrigin(0, 0);
-        fondo4b.setOrigin(0, 0);
-        fondo5a.setOrigin(0, 0);
-        fondo5b.setOrigin(0, 0);
-    }
-    exports.default = cargarFondo;
-});
-define("update-fondo", ["require", "exports"], function (require, exports) {
+define("functions/update-fondo", ["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     function updateFondo(game) {
@@ -300,7 +300,7 @@ define("update-fondo", ["require", "exports"], function (require, exports) {
     }
     exports.default = updateFondo;
 });
-define("level-scene_1", ["require", "exports", "level-scene", "update-fondo"], function (require, exports, level_scene_1, update_fondo_1) {
+define("scenes/level-scene_1", ["require", "exports", "scenes/templates/level-scene", "functions/update-fondo"], function (require, exports, level_scene_1, update_fondo_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     level_scene_1 = __importDefault(level_scene_1);
@@ -364,7 +364,7 @@ define("level-scene_1", ["require", "exports", "level-scene", "update-fondo"], f
     }(level_scene_1.default));
     exports.default = LevelScene_1;
 });
-define("main", ["require", "exports", "level-scene_1"], function (require, exports, level_scene_1_1) {
+define("main", ["require", "exports", "scenes/level-scene_1"], function (require, exports, level_scene_1_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.gameConfig = void 0;
@@ -401,7 +401,7 @@ define("main", ["require", "exports", "level-scene_1"], function (require, expor
         location.href = location.href.substr(location.href.length - 10);
     exports.default = (new Phaser.Game(exports.gameConfig));
 });
-define("ui-scene", ["require", "exports", "default-scene"], function (require, exports, default_scene_2) {
+define("scenes/templates/ui-scene", ["require", "exports", "scenes/templates/default-scene"], function (require, exports, default_scene_2) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     default_scene_2 = __importDefault(default_scene_2);
