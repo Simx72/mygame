@@ -300,7 +300,7 @@ define("update-fondo", ["require", "exports"], function (require, exports) {
     }
     exports.default = updateFondo;
 });
-define("main-scene", ["require", "exports", "level-scene", "update-fondo"], function (require, exports, level_scene_1, update_fondo_1) {
+define("level-scene_1", ["require", "exports", "level-scene", "update-fondo"], function (require, exports, level_scene_1, update_fondo_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     level_scene_1 = __importDefault(level_scene_1);
@@ -311,7 +311,7 @@ define("main-scene", ["require", "exports", "level-scene", "update-fondo"], func
             var _this = _super.call(this, {
                 active: false,
                 visible: false,
-                key: 'main-scene',
+                key: 'level-scene.1',
             }) || this;
             /* preload part */
             _this.$preload = function () {
@@ -364,7 +364,7 @@ define("main-scene", ["require", "exports", "level-scene", "update-fondo"], func
     }(level_scene_1.default));
     exports.default = LevelScene1;
 });
-define("main", ["require", "exports", "main-scene"], function (require, exports, main_scene_1) {
+define("main", ["require", "exports", "./main-scene"], function (require, exports, main_scene_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.gameConfig = void 0;
