@@ -2,7 +2,7 @@
 import LevelScene1 from './main-scene';
 
 export const gameConfig: Phaser.Types.Core.GameConfig = {
-  title: 'Juego ejemplo',
+  title: 'El tesoro',
 
   type: Phaser.AUTO,
 

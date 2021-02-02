@@ -370,7 +370,7 @@ define("main", ["require", "exports", "main-scene"], function (require, exports,
     exports.gameConfig = void 0;
     main_scene_1 = __importDefault(main_scene_1);
     exports.gameConfig = {
-        title: 'Juego ejemplo',
+        title: 'El tesoro',
         type: Phaser.AUTO,
         scale: {
             mode: Phaser.Scale.FIT,
