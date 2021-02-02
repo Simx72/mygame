@@ -20,7 +20,6 @@ export default class LevelScene extends DefaultScene {
     this.$update = () => { };
     this.centerX = 0;
     this.centerY = 0;
-    this.dato('sistema.fondo')
     /**
      * preload
      */
@@ -33,8 +32,8 @@ export default class LevelScene extends DefaultScene {
      * create
      */
     this._create = () => {
-      this._cargarMainCharacter()
       this.cargarFondo()
+      this._cargarMainCharacter()
       this.$create()
     }
 
