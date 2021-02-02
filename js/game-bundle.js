@@ -1,4 +1,3 @@
-"use strict";
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -369,44 +368,6 @@ define("scenes/level-scene_1", ["require", "exports", "scenes/templates/level-sc
     }(level_scene_1.default));
     exports.default = LevelScene_1;
 });
-define("main", ["require", "exports", "scenes/level-scene_1", "./scenes/start-scene"], function (require, exports, level_scene_1_1, start_scene_1) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.gameConfig = void 0;
-    level_scene_1_1 = __importDefault(level_scene_1_1);
-    start_scene_1 = __importDefault(start_scene_1);
-    exports.gameConfig = {
-        title: 'El tesoro',
-        type: Phaser.AUTO,
-        scale: {
-            mode: Phaser.Scale.FIT,
-            autoCenter: Phaser.Scale.CENTER_BOTH,
-            width: innerWidth,
-            height: innerHeight,
-            zoom: 4,
-            min: {
-                width: 185,
-                height: 90
-            },
-            max: {
-                width: 320,
-                height: 200
-            }
-        },
-        scene: [start_scene_1.default, level_scene_1_1.default],
-        physics: {
-            default: 'arcade',
-            arcade: {
-                debug: true,
-            },
-        },
-        parent: 'game',
-        backgroundColor: '#000000'
-    };
-    if (location.href.substr(location.href.length - 10) == 'index.html')
-        location.href = location.href.substr(location.href.length - 10);
-    exports.default = (new Phaser.Game(exports.gameConfig));
-});
 define("scenes/templates/ui-scene", ["require", "exports", "scenes/templates/default-scene"], function (require, exports, default_scene_2) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
@@ -472,5 +433,67 @@ define("scenes/templates/ui-scene", ["require", "exports", "scenes/templates/def
         return UIScene;
     }(default_scene_2.default));
     exports.default = UIScene;
+});
+define("scenes/start-scene", ["require", "exports", "scenes/templates/ui-scene"], function (require, exports, ui_scene_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    ui_scene_1 = __importDefault(ui_scene_1);
+    var StartScene = /** @class */ (function (_super) {
+        __extends(StartScene, _super);
+        function StartScene() {
+            var _this = _super.call(this, {
+                active: false,
+                visible: false,
+                key: 'start-scene',
+            }) || this;
+            _this.$preload = function () {
+            };
+            _this.$create = function () {
+            };
+            _this.$update = function () {
+            };
+            return _this;
+        }
+        return StartScene;
+    }(ui_scene_1.default));
+    exports.default = StartScene;
+});
+define("main", ["require", "exports", "scenes/level-scene_1", "scenes/start-scene"], function (require, exports, level_scene_1_1, start_scene_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.gameConfig = void 0;
+    level_scene_1_1 = __importDefault(level_scene_1_1);
+    start_scene_1 = __importDefault(start_scene_1);
+    exports.gameConfig = {
+        title: 'El tesoro',
+        type: Phaser.AUTO,
+        scale: {
+            mode: Phaser.Scale.FIT,
+            autoCenter: Phaser.Scale.CENTER_BOTH,
+            width: innerWidth,
+            height: innerHeight,
+            zoom: 4,
+            min: {
+                width: 185,
+                height: 90
+            },
+            max: {
+                width: 320,
+                height: 200
+            }
+        },
+        scene: [start_scene_1.default, level_scene_1_1.default],
+        physics: {
+            default: 'arcade',
+            arcade: {
+                debug: true,
+            },
+        },
+        parent: 'game',
+        backgroundColor: '#000000'
+    };
+    if (location.href.substr(location.href.length - 10) == 'index.html')
+        location.href = location.href.substr(location.href.length - 10);
+    exports.default = (new Phaser.Game(exports.gameConfig));
 });
 //# sourceMappingURL=game-bundle.js.map
