@@ -10,11 +10,13 @@ export default class StartScene extends UIScene {
   }
 
   $preload = () => {
-
+    this.load.image('bg', '/assets/background/PNG/Cartoon_Forest_BG_01/Cartoon_Forest_BG_01.png')
   }
 
   $create = () => {
-
+    let xd = this.add.image(this.centerX, this.centerY, 'bg')
+      .setDisplaySize(this.scale.width, this.scale.height)
+    console.log(xd)
   }
 
   $update = () => {
