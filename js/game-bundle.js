@@ -185,6 +185,7 @@ define("level-scene", ["require", "exports", "default-scene", "cargar-main-chara
              * preload
              */
             _this._preload = function () {
+                _this._preloadTiles();
                 preload_character_1.default(_this);
                 _this.$preload();
             };
@@ -222,6 +223,12 @@ define("level-scene", ["require", "exports", "default-scene", "cargar-main-chara
             else {
                 throw new TypeError("'parameter 'fondo' of type [ 1 | 2 | 3 | 4 ] is not assignable to " + fondo);
             }
+        };
+        LevelScene.prototype._preloadTiles = function () {
+            for (var i = 2; i < 129; i++) {
+                this.load.image("tile." + i, "assets/enviroment/PNG/Tiles/tile" + i + ".png");
+            }
+            this.load.image('tile.ground', 'assets/enviroment/PNG/Tiles/tile32.png');
         };
         return LevelScene;
     }(default_scene_1.default));

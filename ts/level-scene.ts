@@ -24,6 +24,7 @@ export default class LevelScene extends DefaultScene {
      * preload
      */
     this._preload = () => {
+      this._preloadTiles()
       preloadCharacter(this)
       this.$preload()
     }
@@ -86,6 +87,16 @@ export default class LevelScene extends DefaultScene {
     } else {
       throw new TypeError(`'parameter 'fondo' of type [ 1 | 2 | 3 | 4 ] is not assignable to ${fondo}`)
     }
+  }
+
+  _preloadTiles() {
+
+    for (let i = 2; i < 129; i++) {
+      this.load.image(`tile.${i}`, `assets/enviroment/PNG/Tiles/tile${i}.png`)
+    }
+
+    this.load.image('tile.ground', 'assets/enviroment/PNG/Tiles/tile32.png')
+
   }
 
 }
