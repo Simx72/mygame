@@ -15,10 +15,44 @@ export default class StartScene extends UIScene {
 
   $create = () => {
     this.object(
-      'fondo',
+      'fondo.1',
       this.add.image(this.centerX, this.centerY, 'bg')
     ).setDisplaySize(this.scale.width, this.scale.height)
       .setAlpha(0)
+    this.object(
+      'fondo.2',
+      this.add.image(this.centerX, this.centerY, 'bg')
+    ).setDisplaySize(this.scale.width, this.scale.height)
+      .setAlpha(0)
+
+    this.object(
+      'Titulo.2',
+      this.add.text(
+        this.centerX - 5,
+        this.scale.height * 0.3 + 5,
+        'El tesoro',
+        {
+          align: 'center',
+          color: '#0009',
+          fontSize: this.scale.width * 0.05 + 'pt',
+          fontFamily: 'sans-serif'
+        }
+      ).setOrigin(0.5, 0)
+    )
+    this.object(
+      'Titulo.1',
+      this.add.text(
+        this.centerX,
+        this.scale.height * 0.3,
+        'El tesoro',
+        {
+          align: 'center',
+          color: '#ece74f',
+          fontSize: this.scale.width * 0.05 + 'pt',
+          fontFamily: 'sans-serif'
+        }
+      ).setOrigin(0.5, 0)
+    )
 
     let boton = {
       start: this.object(
@@ -39,7 +73,7 @@ export default class StartScene extends UIScene {
               {
                 fontFamily: 'sans-serif',
                 color: '#2DB02D',
-                fontSize: '20pt'
+                fontSize: this.scale.width * 0.03 + 'pt'
               }
             ).setOrigin(0.5, 0.5)
           ],
@@ -66,14 +100,25 @@ export default class StartScene extends UIScene {
       })
 
 
-
+    this.dato('iniciado', false)
 
   }
 
   $update = () => {
-    var fondo = this.object<Phaser.GameObjects.Image>('fondo')
-    if (fondo.alpha <= 1) {
-      fondo.alpha += 0.008;
+    var fondo1 = this.object<Phaser.GameObjects.Image>('fondo.1')
+    var fondo2 = this.object<Phaser.GameObjects.Image>('fondo.2')
+
+    fondo1.x -= 0.5;
+    if (fondo1.x < (-this.centerX)) {
+      fondo1.x = this.centerX
+    }
+
+    fondo2.x = fondo1.x + this.scale.width
+
+    if (fondo1.alpha <= 1 && !this.dato('iniciado')) {
+      fondo2.alpha = (fondo1.alpha += 0.008);
+    } else {
+      this.dato('iniciado', true)
     }
   }
 

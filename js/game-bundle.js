@@ -428,15 +428,29 @@ define("scenes/start-scene", ["require", "exports", "scenes/templates/ui-scene"]
                 _this.load.image('bg', '/assets/background/PNG/Cartoon_Forest_BG_01/Cartoon_Forest_BG_01.png');
             };
             _this.$create = function () {
-                _this.object('fondo', _this.add.image(_this.centerX, _this.centerY, 'bg')).setDisplaySize(_this.scale.width, _this.scale.height)
+                _this.object('fondo.1', _this.add.image(_this.centerX, _this.centerY, 'bg')).setDisplaySize(_this.scale.width, _this.scale.height)
                     .setAlpha(0);
+                _this.object('fondo.2', _this.add.image(_this.centerX, _this.centerY, 'bg')).setDisplaySize(_this.scale.width, _this.scale.height)
+                    .setAlpha(0);
+                _this.object('Titulo.2', _this.add.text(_this.centerX - 5, _this.scale.height * 0.3 + 5, 'El tesoro', {
+                    align: 'center',
+                    color: '#0009',
+                    fontSize: _this.scale.width * 0.05 + 'pt',
+                    fontFamily: 'sans-serif'
+                }).setOrigin(0.5, 0));
+                _this.object('Titulo.1', _this.add.text(_this.centerX, _this.scale.height * 0.3, 'El tesoro', {
+                    align: 'center',
+                    color: '#ece74f',
+                    fontSize: _this.scale.width * 0.05 + 'pt',
+                    fontFamily: 'sans-serif'
+                }).setOrigin(0.5, 0));
                 var boton = {
                     start: _this.object('boton.start', _this.add.group([
                         _this.add.rectangle(_this.centerX, _this.centerY, _this.centerX, _this.scale.height * 0.09, 0xFFFFFF).setInteractive(),
                         _this.add.text(_this.centerX, _this.centerY, 'Iniciar', {
                             fontFamily: 'sans-serif',
                             color: '#2DB02D',
-                            fontSize: '20pt'
+                            fontSize: _this.scale.width * 0.03 + 'pt'
                         }).setOrigin(0.5, 0.5)
                     ], {
                         setOrigin: { x: 0.5, y: 0.5 }
@@ -456,11 +470,21 @@ define("scenes/start-scene", ["require", "exports", "scenes/templates/ui-scene"]
                     _this.game.canvas.style.cursor = 'default';
                     btnstart.setFillStyle(0xFFFFFF);
                 });
+                _this.dato('iniciado', false);
             };
             _this.$update = function () {
-                var fondo = _this.object('fondo');
-                if (fondo.alpha <= 1) {
-                    fondo.alpha += 0.008;
+                var fondo1 = _this.object('fondo.1');
+                var fondo2 = _this.object('fondo.2');
+                fondo1.x -= 0.5;
+                if (fondo1.x < (-_this.centerX)) {
+                    fondo1.x = _this.centerX;
+                }
+                fondo2.x = fondo1.x + _this.scale.width;
+                if (fondo1.alpha <= 1 && !_this.dato('iniciado')) {
+                    fondo2.alpha = (fondo1.alpha += 0.008);
+                }
+                else {
+                    _this.dato('iniciado', true);
                 }
             };
             return _this;
