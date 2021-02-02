@@ -41,8 +41,7 @@ define("scenes/templates/default-scene", ["require", "exports"], function (requi
                 return this._object.object[id];
             }
             else {
-                this._object.object[id] = val;
-                return this._object.object[id];
+                return (this._object.object[id] = val);
             }
         };
         DefaultScene.prototype.dato = function (id, val) {
@@ -384,12 +383,9 @@ define("scenes/templates/ui-scene", ["require", "exports", "scenes/templates/def
          */
         function UIScene(config) {
             var _this = _super.call(this, config) || this;
-            _this._object = { object: {}, data: {} };
             _this.$preload = function () { };
             _this.$create = function () { };
             _this.$update = function () { };
-            _this.centerX = 0;
-            _this.centerY = 0;
             /**
              * preload
              */
@@ -412,24 +408,6 @@ define("scenes/templates/ui-scene", ["require", "exports", "scenes/templates/def
             };
             return _this;
         }
-        UIScene.prototype.object = function (id, val) {
-            if (typeof val == "undefined") {
-                return this._object.object[id];
-            }
-            else {
-                this._object.object[id] = val;
-                return this._object.object[id];
-            }
-        };
-        UIScene.prototype.dato = function (id, val) {
-            if (typeof val == "undefined") {
-                return this._object.data[id];
-            }
-            else {
-                this._object.data[id] = val;
-                return this._object.data[id];
-            }
-        };
         return UIScene;
     }(default_scene_2.default));
     exports.default = UIScene;
@@ -450,10 +428,40 @@ define("scenes/start-scene", ["require", "exports", "scenes/templates/ui-scene"]
                 _this.load.image('bg', '/assets/background/PNG/Cartoon_Forest_BG_01/Cartoon_Forest_BG_01.png');
             };
             _this.$create = function () {
-                _this.object('fondo', _this.add.image(_this.centerX, _this.centerY, 'bg')
-                    .setDisplaySize(_this.scale.width, _this.scale.height));
+                _this.object('fondo', _this.add.image(_this.centerX, _this.centerY, 'bg')).setDisplaySize(_this.scale.width, _this.scale.height)
+                    .setAlpha(0);
+                var boton = {
+                    start: _this.object('boton.start', _this.add.group([
+                        _this.add.rectangle(_this.centerX, _this.centerY, _this.centerX, _this.scale.height * 0.09, 0xFFFFFF),
+                        _this.add.text(_this.centerX, _this.centerY, 'Iniciar', {
+                            fontFamily: 'sans-serif',
+                            color: '#2DB02D',
+                            fontSize: '20pt'
+                        }).setOrigin(0.5, 0.5)
+                    ], {
+                        setOrigin: { x: 0.5, y: 0.5 }
+                    }))
+                };
+                var btnstart = boton.start.children.getArray()[0];
+                btnstart.on('pointerdown', function () {
+                    btnstart.setFillStyle(0xFFFFFF);
+                    _this.game.scene.switch('loose-scene', 'main-scene');
+                    _this.game.canvas.style.cursor = 'default';
+                })
+                    .on('pointerover', function () {
+                    _this.game.canvas.style.cursor = 'pointer';
+                    btnstart.setFillStyle(0xDDDD33);
+                })
+                    .on('pointerout', function () {
+                    _this.game.canvas.style.cursor = 'default';
+                    btnstart.setFillStyle(0xFFFFFF);
+                });
             };
             _this.$update = function () {
+                var fondo = _this.object('fondo');
+                if (fondo.alpha <= 1) {
+                    fondo.alpha += 0.008;
+                }
             };
             return _this;
         }

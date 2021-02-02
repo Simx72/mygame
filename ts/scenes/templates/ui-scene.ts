@@ -11,12 +11,9 @@ export default class UIScene extends DefaultScene {
    */
   constructor(config: string | Phaser.Types.Scenes.SettingsConfig) {
     super(config);
-    this._object = { object: {}, data: {} };
     this.$preload = () => { };
     this.$create = () => { };
     this.$update = () => { };
-    this.centerX = 0;
-    this.centerY = 0;
     /**
      * preload
      */
@@ -37,42 +34,6 @@ export default class UIScene extends DefaultScene {
     this._update = () => {
       this.$update()
     }
-  }
-
-  object<T extends Phaser.GameObjects.GameObject>(id: string, val?: T | Phaser.GameObjects.GameObject): T {
-    if (typeof val == "undefined") {
-
-      return <T>this._object.object[id];
-
-    } else {
-
-      this._object.object[id] = val;
-
-      return <T>this._object.object[id];
-
-    }
-  }
-
-  dato<T = string | boolean | number>(id: string, val?: T): T {
-    if (typeof val == "undefined") {
-
-      return <T>this._object.data[id];
-
-    } else {
-
-      this._object.data[id] = val;
-
-      return <T>this._object.data[id];
-
-    }
-  }
-
-  centerX: number;
-  centerY: number;
-
-  _object: {
-    object: { [c: string]: any },
-    data: { [c: string]: any }
   }
 
   /**

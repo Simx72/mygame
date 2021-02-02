@@ -18,16 +18,15 @@ export default class DefaultScene extends Phaser.Scene {
     this.centerY = 0;
   }
 
-  object<T extends Phaser.GameObjects.GameObject>(id: string, val?: T | Phaser.GameObjects.GameObject): T {
+  object<T = Phaser.GameObjects.GameObject | Phaser.GameObjects.Group>(id: string, val?: T): T {
     if (typeof val == "undefined") {
 
       return <T>this._object.object[id];
 
     } else {
 
-      this._object.object[id] = val;
+      return (this._object.object[id] = val);
 
-      return <T>this._object.object[id];
 
     }
   }
