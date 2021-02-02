@@ -14,9 +14,11 @@ export default class StartScene extends UIScene {
   }
 
   $create = () => {
-    let xd = this.add.image(this.centerX, this.centerY, 'bg')
-      .setDisplaySize(this.scale.width, this.scale.height)
-    console.log(xd)
+    this.object(
+      'fondo',
+      this.add.image(this.centerX, this.centerY, 'bg')
+        .setDisplaySize(this.scale.width, this.scale.height)
+    )
   }
 
   $update = () => {
