@@ -1,8 +1,8 @@
 import DefaultScene from './default-scene'
-import cargarMainCharacter from './cargar-main-character';
-import cargarFondo from './cargar-fondo';
-import calcularPos from './calcular-pos';
-import preloadCharacter from './preload-character';
+import cargarMainCharacter from '../../functions/cargar-main-character';
+import cargarFondo from '../../functions/cargar-fondo';
+import calcularPos from '../../functions/calcular-pos';
+import preloadCharacter from '../../functions/preload-character';
 /**
  * @class LevelScene
  * creates a level scene (a level for adding platforms and other things)

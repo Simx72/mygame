@@ -1,5 +1,5 @@
 /// <reference path="../phaser/typings/phaser.d.ts" />
-import LevelScene_1 from './level-scene_1';
+import LevelScene_1 from './scenes/level-scene_1';
 
 export const gameConfig: Phaser.Types.Core.GameConfig = {
   title: 'El tesoro',

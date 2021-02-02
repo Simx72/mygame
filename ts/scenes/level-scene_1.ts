@@ -1,5 +1,5 @@
-import LevelScene from './level-scene';
-import updateFondo from './update-fondo';
+import LevelScene from './templates/level-scene';
+import updateFondo from '../functions/update-fondo';
 
 export default class LevelScene_1 extends LevelScene {
 
