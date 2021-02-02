@@ -1,5 +1,5 @@
 /// <reference path="../phaser/typings/phaser.d.ts" />
-import LevelScene1 from './level-scene_1';
+import LevelScene_1 from './level-scene_1';
 
 export const gameConfig: Phaser.Types.Core.GameConfig = {
   title: 'El tesoro',
@@ -22,7 +22,7 @@ export const gameConfig: Phaser.Types.Core.GameConfig = {
     }
   },
 
-  scene: [LevelScene1],
+  scene: [LevelScene_1],
 
   physics: {
     default: 'arcade',

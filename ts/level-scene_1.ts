@@ -1,7 +1,7 @@
 import LevelScene from './level-scene';
 import updateFondo from './update-fondo';
 
-export default class LevelScene1 extends LevelScene {
+export default class LevelScene_1 extends LevelScene {
 
   constructor() {
     super({

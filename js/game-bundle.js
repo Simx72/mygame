@@ -305,9 +305,9 @@ define("level-scene_1", ["require", "exports", "level-scene", "update-fondo"], f
     Object.defineProperty(exports, "__esModule", { value: true });
     level_scene_1 = __importDefault(level_scene_1);
     update_fondo_1 = __importDefault(update_fondo_1);
-    var LevelScene1 = /** @class */ (function (_super) {
-        __extends(LevelScene1, _super);
-        function LevelScene1() {
+    var LevelScene_1 = /** @class */ (function (_super) {
+        __extends(LevelScene_1, _super);
+        function LevelScene_1() {
             var _this = _super.call(this, {
                 active: false,
                 visible: false,
@@ -360,9 +360,9 @@ define("level-scene_1", ["require", "exports", "level-scene", "update-fondo"], f
             };
             return _this;
         }
-        return LevelScene1;
+        return LevelScene_1;
     }(level_scene_1.default));
-    exports.default = LevelScene1;
+    exports.default = LevelScene_1;
 });
 define("main", ["require", "exports", "level-scene_1"], function (require, exports, level_scene_1_1) {
     "use strict";
