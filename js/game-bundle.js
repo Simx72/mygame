@@ -181,7 +181,6 @@ define("level-scene", ["require", "exports", "default-scene", "cargar-main-chara
             _this.$update = function () { };
             _this.centerX = 0;
             _this.centerY = 0;
-            _this.dato('sistema.fondo');
             /**
              * preload
              */
@@ -193,8 +192,8 @@ define("level-scene", ["require", "exports", "default-scene", "cargar-main-chara
              * create
              */
             _this._create = function () {
-                _this._cargarMainCharacter();
                 _this.cargarFondo();
+                _this._cargarMainCharacter();
                 _this.$create();
             };
             /**
