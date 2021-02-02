@@ -1,5 +1,5 @@
-import LevelScene1 from './main-scene';
 /// <reference path="../phaser/typings/phaser.d.ts" />
+import LevelScene1 from './main-scene';
 
 const gameConfig: Phaser.Types.Core.GameConfig = {
   title: 'Juego ejemplo',

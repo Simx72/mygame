@@ -134,13 +134,35 @@ define("cargar-main-character", ["require", "exports"], function (require, expor
     }
     exports.default = cargarMainCharacter;
 });
-define("level-scene", ["require", "exports", "default-scene", "cargar-main-character", "cargar-fondo", "calcular-pos"], function (require, exports, default_scene_1, cargar_main_character_1, cargar_fondo_1, calcular_pos_1) {
+define("preload-character", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    function preloadCharacter(game) {
+        game.load.spritesheet('character.main.idle', location.href + 'assets/characters/1-Woodcutter/Woodcutter_idle.png', {
+            frameWidth: 27,
+            frameHeight: 32,
+            margin: 0,
+            spacing: 21,
+            endFrame: 4
+        });
+        game.load.spritesheet('character.main.attack.1', location.href + 'assets/characters/1-Woodcutter/Woodcutter_attack1.png', {
+            frameWidth: 45,
+            frameHeight: 38,
+            margin: 0,
+            spacing: 3,
+            endFrame: 6
+        });
+    }
+    exports.default = preloadCharacter;
+});
+define("level-scene", ["require", "exports", "default-scene", "cargar-main-character", "cargar-fondo", "calcular-pos", "preload-character"], function (require, exports, default_scene_1, cargar_main_character_1, cargar_fondo_1, calcular_pos_1, preload_character_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     default_scene_1 = __importDefault(default_scene_1);
     cargar_main_character_1 = __importDefault(cargar_main_character_1);
     cargar_fondo_1 = __importDefault(cargar_fondo_1);
     calcular_pos_1 = __importDefault(calcular_pos_1);
+    preload_character_1 = __importDefault(preload_character_1);
     /**
      * @class LevelScene
      * creates a level scene (a level for adding platforms and other things)
@@ -163,20 +185,7 @@ define("level-scene", ["require", "exports", "default-scene", "cargar-main-chara
              * preload
              */
             _this._preload = function () {
-                _this.load.spritesheet('character.main.idle', location.href + 'assets/characters/1-Woodcutter/Woodcutter_idle.png', {
-                    frameWidth: 27,
-                    frameHeight: 32,
-                    margin: 0,
-                    spacing: 21,
-                    endFrame: 4
-                });
-                _this.load.spritesheet('character.main.attack.1', location.href + 'assets/characters/1-Woodcutter/Woodcutter_attack1.png', {
-                    frameWidth: 45,
-                    frameHeight: 38,
-                    margin: 0,
-                    spacing: 3,
-                    endFrame: 6
-                });
+                preload_character_1.default(_this);
                 _this.$preload();
             };
             /**
@@ -376,27 +385,6 @@ define("main", ["require", "exports", "main-scene"], function (require, exports,
         backgroundColor: '#000000'
     };
     var phaserGame = new Phaser.Game(gameConfig);
-});
-define("preload-character", ["require", "exports"], function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    function preloadCharacter(game) {
-        game.load.spritesheet('character.main.idle', location.href + 'assets/characters/1-Woodcutter/Woodcutter_idle.png', {
-            frameWidth: 27,
-            frameHeight: 32,
-            margin: 0,
-            spacing: 21,
-            endFrame: 4
-        });
-        game.load.spritesheet('character.main.attack.1', location.href + 'assets/characters/1-Woodcutter/Woodcutter_attack1.png', {
-            frameWidth: 45,
-            frameHeight: 38,
-            margin: 0,
-            spacing: 3,
-            endFrame: 6
-        });
-    }
-    exports.default = preloadCharacter;
 });
 define("ui-scene", ["require", "exports", "default-scene"], function (require, exports, default_scene_2) {
     "use strict";
