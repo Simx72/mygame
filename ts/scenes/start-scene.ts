@@ -31,7 +31,7 @@ export default class StartScene extends UIScene {
               this.centerX,
               this.scale.height * 0.09,
               0xFFFFFF
-            ),
+            ).setInteractive(),
             this.add.text(
               this.centerX,
               this.centerY,
@@ -53,7 +53,7 @@ export default class StartScene extends UIScene {
     let btnstart = <Phaser.GameObjects.Rectangle>boton.start.children.getArray()[0]
     btnstart.on('pointerdown', () => {
       btnstart.setFillStyle(0xFFFFFF)
-      this.game.scene.switch('loose-scene', 'main-scene')
+      this.game.scene.stop('start-scene').run('level-scene.1')
       this.game.canvas.style.cursor = 'default'
     })
       .on('pointerover', () => {

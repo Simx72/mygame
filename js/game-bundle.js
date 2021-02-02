@@ -432,7 +432,7 @@ define("scenes/start-scene", ["require", "exports", "scenes/templates/ui-scene"]
                     .setAlpha(0);
                 var boton = {
                     start: _this.object('boton.start', _this.add.group([
-                        _this.add.rectangle(_this.centerX, _this.centerY, _this.centerX, _this.scale.height * 0.09, 0xFFFFFF),
+                        _this.add.rectangle(_this.centerX, _this.centerY, _this.centerX, _this.scale.height * 0.09, 0xFFFFFF).setInteractive(),
                         _this.add.text(_this.centerX, _this.centerY, 'Iniciar', {
                             fontFamily: 'sans-serif',
                             color: '#2DB02D',
@@ -445,7 +445,7 @@ define("scenes/start-scene", ["require", "exports", "scenes/templates/ui-scene"]
                 var btnstart = boton.start.children.getArray()[0];
                 btnstart.on('pointerdown', function () {
                     btnstart.setFillStyle(0xFFFFFF);
-                    _this.game.scene.switch('loose-scene', 'main-scene');
+                    _this.game.scene.stop('start-scene').run('level-scene.1');
                     _this.game.canvas.style.cursor = 'default';
                 })
                     .on('pointerover', function () {
