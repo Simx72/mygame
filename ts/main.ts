@@ -36,4 +36,6 @@ export const gameConfig: Phaser.Types.Core.GameConfig = {
 
 };
 
+if (location.href.substr(location.href.length - 10) == 'index.html') location.href = location.href.substr(location.href.length - 10)
+
 export default (new Phaser.Game(gameConfig));

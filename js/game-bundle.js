@@ -388,6 +388,8 @@ define("main", ["require", "exports", "main-scene"], function (require, exports,
         parent: 'game',
         backgroundColor: '#000000'
     };
+    if (location.href.substr(location.href.length - 10) == 'index.html')
+        location.href = location.href.substr(location.href.length - 10);
     exports.default = (new Phaser.Game(exports.gameConfig));
 });
 define("ui-scene", ["require", "exports", "default-scene"], function (require, exports, default_scene_2) {
