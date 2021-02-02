@@ -369,11 +369,12 @@ define("scenes/level-scene_1", ["require", "exports", "scenes/templates/level-sc
     }(level_scene_1.default));
     exports.default = LevelScene_1;
 });
-define("main", ["require", "exports", "scenes/level-scene_1"], function (require, exports, level_scene_1_1) {
+define("main", ["require", "exports", "scenes/level-scene_1", "./scenes/start-scene"], function (require, exports, level_scene_1_1, start_scene_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.gameConfig = void 0;
     level_scene_1_1 = __importDefault(level_scene_1_1);
+    start_scene_1 = __importDefault(start_scene_1);
     exports.gameConfig = {
         title: 'El tesoro',
         type: Phaser.AUTO,
@@ -392,7 +393,7 @@ define("main", ["require", "exports", "scenes/level-scene_1"], function (require
                 height: 200
             }
         },
-        scene: [level_scene_1_1.default],
+        scene: [start_scene_1.default, level_scene_1_1.default],
         physics: {
             default: 'arcade',
             arcade: {
