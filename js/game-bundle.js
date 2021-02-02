@@ -228,7 +228,9 @@ define("level-scene", ["require", "exports", "default-scene", "cargar-main-chara
             for (var i = 2; i < 129; i++) {
                 this.load.image("tile." + i, "assets/enviroment/PNG/Tiles/tile" + i + ".png");
             }
-            this.load.image('tile.ground', 'assets/enviroment/PNG/Tiles/tile32.png');
+            this.load.image('tile.ground.start', 'assets/enviroment/PNG/Tiles/tile31.png');
+            this.load.image('tile.ground.center', 'assets/enviroment/PNG/Tiles/tile32.png');
+            this.load.image('tile.ground.end', 'assets/enviroment/PNG/Tiles/tile30.png');
         };
         return LevelScene;
     }(default_scene_1.default));

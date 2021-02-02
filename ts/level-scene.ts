@@ -95,7 +95,9 @@ export default class LevelScene extends DefaultScene {
       this.load.image(`tile.${i}`, `assets/enviroment/PNG/Tiles/tile${i}.png`)
     }
 
-    this.load.image('tile.ground', 'assets/enviroment/PNG/Tiles/tile32.png')
+    this.load.image('tile.ground.start', 'assets/enviroment/PNG/Tiles/tile31.png')
+    this.load.image('tile.ground.center', 'assets/enviroment/PNG/Tiles/tile32.png')
+    this.load.image('tile.ground.end', 'assets/enviroment/PNG/Tiles/tile30.png')
 
   }
 
