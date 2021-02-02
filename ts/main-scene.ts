@@ -27,10 +27,6 @@ export default class LevelScene1 extends LevelScene {
 
   /* create part */
   $create = () => {
-    let center = {
-      x: this.scale.width / 2,
-      y: this.scale.height / 2,
-    }
 
     // this.physics.world.gravity.y = 100;
 

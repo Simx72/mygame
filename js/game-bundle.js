@@ -355,7 +355,6 @@ define("main", ["require", "exports", "main-scene"], function (require, exports,
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     main_scene_1 = __importDefault(main_scene_1);
-    /// <reference path="../phaser/typings/phaser.d.ts" />
     var gameConfig = {
         title: 'Juego ejemplo',
         type: Phaser.AUTO,
