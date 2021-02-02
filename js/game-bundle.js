@@ -302,10 +302,6 @@ define("main-scene", ["require", "exports", "level-scene", "update-fondo"], func
             };
             /* create part */
             _this.$create = function () {
-                var center = {
-                    x: _this.scale.width / 2,
-                    y: _this.scale.height / 2,
-                };
                 // this.physics.world.gravity.y = 100;
                 var camera = _this.cameras.main;
                 camera.setBounds(0, 0, _this.scale.width * 5, 0);
