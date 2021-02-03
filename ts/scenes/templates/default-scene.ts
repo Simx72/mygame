@@ -84,7 +84,7 @@ export default class DefaultScene extends Phaser.Scene {
     this._create()
   }
   /**
-   * create
+   * update
    */
   public update() {
     this._update()

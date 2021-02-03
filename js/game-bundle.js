@@ -68,7 +68,7 @@ define("scenes/templates/default-scene", ["require", "exports"], function (requi
             this._create();
         };
         /**
-         * create
+         * update
          */
         DefaultScene.prototype.update = function () {
             this._update();
