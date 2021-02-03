@@ -10,7 +10,7 @@ export default class StartScene extends UIScene {
   }
 
   $preload = () => {
-    this.load.image('bg', '/assets/background/PNG/Cartoon_Forest_BG_01/Cartoon_Forest_BG_01.png')
+    this.load.image('bg', 'assets/background/PNG/Cartoon_Forest_BG_01/Cartoon_Forest_BG_01.png')
   }
 
   $create = () => {
