@@ -79,6 +79,7 @@ export default class DefaultScene extends Phaser.Scene {
     this.centerX = this.game.scale.width / 2;
     this.centerY = this.game.scale.height / 2;
     this._preload()
+
   }
   /**
    * create
