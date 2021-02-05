@@ -428,6 +428,15 @@ define("scenes/start-scene", ["require", "exports", "scenes/templates/ui-scene"]
                 _this.load.setCORS('anonymous');
                 _this.load.image('bg', 'http://simx72-mygame-assets.epizy.com/assets/background/PNG/Cartoon_Forest_BG_01/Cartoon_Forest_BG_01.png', {
                     responseType: 'blob',
+                    async: true,
+                    user: '',
+                    password: '',
+                    timeout: 0,
+                    headers: undefined,
+                    header: undefined,
+                    headerValue: undefined,
+                    requestedWith: undefined,
+                    overrideMimeType: undefined,
                     withCredentials: false
                 });
             };
