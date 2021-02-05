@@ -13,7 +13,11 @@ export default class StartScene extends UIScene {
     this.load.setCORS('anonymous')
     this.load.image(
       'bg',
-      'http://simx72-mygame-assets.epizy.com/assets/background/PNG/Cartoon_Forest_BG_01/Cartoon_Forest_BG_01.png'
+      'http://simx72-mygame-assets.epizy.com/assets/background/PNG/Cartoon_Forest_BG_01/Cartoon_Forest_BG_01.png',
+      {
+        responseType: 'blob',
+        withCredentials: false
+      }
     )
   }
 
