@@ -10,7 +10,13 @@ export default class StartScene extends UIScene {
   }
 
   $preload = () => {
-    this.load.image('bg', 'http://simx72-mygame-assets.epizy.com/assets/background/PNG/Cartoon_Forest_BG_01/Cartoon_Forest_BG_01.png')
+    this.load.image(
+      'bg',
+      'http://simx72-mygame-assets.epizy.com/assets/background/PNG/Cartoon_Forest_BG_01/Cartoon_Forest_BG_01.png',
+      {
+        withCredentials: false
+      }
+    )
   }
 
   $create = () => {

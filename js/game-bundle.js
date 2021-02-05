@@ -425,7 +425,9 @@ define("scenes/start-scene", ["require", "exports", "scenes/templates/ui-scene"]
                 key: 'start-scene',
             }) || this;
             _this.$preload = function () {
-                _this.load.image('bg', 'http://simx72-mygame-assets.epizy.com/assets/background/PNG/Cartoon_Forest_BG_01/Cartoon_Forest_BG_01.png');
+                _this.load.image('bg', 'http://simx72-mygame-assets.epizy.com/assets/background/PNG/Cartoon_Forest_BG_01/Cartoon_Forest_BG_01.png', {
+                    withCredentials: false
+                });
             };
             _this.$create = function () {
                 _this.object('fondo.1', _this.add.image(_this.centerX, _this.centerY, 'bg')).setDisplaySize(_this.scale.width, _this.scale.height)
