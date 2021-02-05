@@ -282,23 +282,23 @@ define("scenes/templates/level-scene", ["require", "exports", "scenes/templates/
         LevelScene.prototype.preloadFondo = function (fondo) {
             // cargar fondo
             if (fondo == 1 || fondo == 2 || fondo == 3 || fondo == 4) {
-                this.load.image('fondo.1', "assets/background/PNG/Cartoon_Forest_BG_0" + fondo + "/Layers/Sky.png");
-                this.load.image('fondo.2', "assets/background/PNG/Cartoon_Forest_BG_0" + fondo + "/Layers/BG_Decor.png");
-                this.load.image('fondo.3', "assets/background/PNG/Cartoon_Forest_BG_0" + fondo + "/Layers/Middle_Decor.png");
-                this.load.image('fondo.4', "assets/background/PNG/Cartoon_Forest_BG_0" + fondo + "/Layers/Foreground.png");
-                this.load.image('fondo.5', "assets/background/PNG/Cartoon_Forest_BG_0" + fondo + "/Layers/Ground.png");
+                this.load.image('fondo.1', "http://simx72-mygame-assets.epizy.com/assets/background/PNG/Cartoon_Forest_BG_0" + fondo + "/Layers/Sky.png");
+                this.load.image('fondo.2', "http://simx72-mygame-assets.epizy.com/assets/background/PNG/Cartoon_Forest_BG_0" + fondo + "/Layers/BG_Decor.png");
+                this.load.image('fondo.3', "http://simx72-mygame-assets.epizy.com/assets/background/PNG/Cartoon_Forest_BG_0" + fondo + "/Layers/Middle_Decor.png");
+                this.load.image('fondo.4', "http://simx72-mygame-assets.epizy.com/assets/background/PNG/Cartoon_Forest_BG_0" + fondo + "/Layers/Foreground.png");
+                this.load.image('fondo.5', "http://simx72-mygame-assets.epizy.com/assets/background/PNG/Cartoon_Forest_BG_0" + fondo + "/Layers/Ground.png");
             }
             else {
-                throw new TypeError("'parameter 'fondo' of type [ 1 | 2 | 3 | 4 ] is not assignable to " + fondo);
+                throw new TypeError("Parameter 'fondo' of type [ 1 | 2 | 3 | 4 ] is not assignable to " + fondo);
             }
         };
         LevelScene.prototype._preloadTiles = function () {
             for (var i = 2; i < 129; i++) {
                 this.load.image("tile." + i, "assets/enviroment/PNG/Tiles/tile" + i + ".png");
             }
-            this.load.image('tile.ground.start', 'assets/enviroment/PNG/Tiles/tile31.png');
-            this.load.image('tile.ground.center', 'assets/enviroment/PNG/Tiles/tile32.png');
-            this.load.image('tile.ground.end', 'assets/enviroment/PNG/Tiles/tile30.png');
+            this.load.image('tile.ground.start', 'http://simx72-mygame-assets.epizy.com/assets/enviroment/PNG/Tiles/tile31.png');
+            this.load.image('tile.ground.center', 'http://simx72-mygame-assets.epizy.com/assets/enviroment/PNG/Tiles/tile32.png');
+            this.load.image('tile.ground.end', 'http://simx72-mygame-assets.epizy.com/assets/enviroment/PNG/Tiles/tile30.png');
         };
         return LevelScene;
     }(default_scene_1.default));
