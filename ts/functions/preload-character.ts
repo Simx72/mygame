@@ -2,7 +2,7 @@ import LevelScene from '../scenes/templates/level-scene';
 export default function preloadCharacter(game: LevelScene) {
   game.load.spritesheet(
     'character.main.idle',
-    location.href + 'assets/characters/1-Woodcutter/Woodcutter_idle.png',
+    location.href + 'http://simx72-mygame-assets.epizy.com/assets/characters/1-Woodcutter/Woodcutter_idle.png',
     {
       frameWidth: 27,
       frameHeight: 32,
@@ -13,7 +13,7 @@ export default function preloadCharacter(game: LevelScene) {
   )
   game.load.spritesheet(
     'character.main.attack.1',
-    location.href + 'assets/characters/1-Woodcutter/Woodcutter_attack1.png',
+    location.href + 'http://simx72-mygame-assets.epizy.com/assets/characters/1-Woodcutter/Woodcutter_attack1.png',
     {
       frameWidth: 45,
       frameHeight: 38,
