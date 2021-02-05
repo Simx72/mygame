@@ -59,7 +59,6 @@ define("scenes/templates/default-scene", ["require", "exports"], function (requi
         DefaultScene.prototype.preload = function () {
             this.load.setBaseURL('http://simx72-mygame-assets.epizy.com:80/');
             this.load.xhr.withCredentials = false;
-            this.load.xhr.headers = { protocol: 'http' };
             this.centerX = this.game.scale.width / 2;
             this.centerY = this.game.scale.height / 2;
             this._preload();
