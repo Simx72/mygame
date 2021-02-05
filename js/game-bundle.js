@@ -425,9 +425,13 @@ define("scenes/start-scene", ["require", "exports", "scenes/templates/ui-scene"]
                 key: 'start-scene',
             }) || this;
             _this.$preload = function () {
-                _this.load.image('bg', 'http://simx72-mygame-assets.epizy.com/assets/background/PNG/Cartoon_Forest_BG_01/Cartoon_Forest_BG_01.png', {
-                    responseType: 'blob',
-                    withCredentials: false
+                _this.load.image({
+                    key: 'bg',
+                    url: 'http://simx72-mygame-assets.epizy.com/assets/background/PNG/Cartoon_Forest_BG_01/Cartoon_Forest_BG_01.png',
+                    xhrSettings: {
+                        responseType: 'blob',
+                        withCredentials: false
+                    }
                 });
             };
             _this.$create = function () {
