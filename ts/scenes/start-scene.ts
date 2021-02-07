@@ -15,6 +15,7 @@ export default class StartScene extends UIScene {
       'bg',
       'assets/background/PNG/Cartoon_Forest_BG_01/Cartoon_Forest_BG_01.png'
     )
+
   }
 
   $create = () => {
