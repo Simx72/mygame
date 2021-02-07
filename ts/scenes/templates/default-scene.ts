@@ -75,6 +75,11 @@ export default class DefaultScene extends Phaser.Scene {
   public preload() {
     this.load.setCORS('anonymus')
     this.load.setBaseURL('http://simx72-mygame-assets.epizy.com:80/')
+
+    this.load.on('loaderror', (file: any) => {
+      console.log(file)
+    })
+
     this.load.xhr.withCredentials = false;
 
     this.centerX = this.game.scale.width / 2;

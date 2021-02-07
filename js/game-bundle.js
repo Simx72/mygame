@@ -59,6 +59,9 @@ define("scenes/templates/default-scene", ["require", "exports"], function (requi
         DefaultScene.prototype.preload = function () {
             this.load.setCORS('anonymus');
             this.load.setBaseURL('http://simx72-mygame-assets.epizy.com:80/');
+            this.load.on('loaderror', function (file) {
+                console.log(file);
+            });
             this.load.xhr.withCredentials = false;
             this.centerX = this.game.scale.width / 2;
             this.centerY = this.game.scale.height / 2;
