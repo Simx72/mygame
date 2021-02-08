@@ -13,7 +13,7 @@ export default class StartScene extends UIScene {
     this.load.setCORS('anonymous')
     this.load.image(
       'bg',
-      'assets/background/PNG/Cartoon_Forest_BG_01/Cartoon_Forest_BG_01.png'
+      'background/PNG/Cartoon_Forest_BG_01/Cartoon_Forest_BG_01.png'
     )
 
   }

@@ -58,7 +58,7 @@ define("scenes/templates/default-scene", ["require", "exports"], function (requi
          */
         DefaultScene.prototype.preload = function () {
             this.load.setCORS('anonymus');
-            this.load.setBaseURL('http://simx72-mygame-assets.epizy.com:80/');
+            this.load.setBaseURL('https://ssl.simx72.repl.co/mygame-assets/');
             this.load.on('loaderror', function (file) {
                 console.log(file);
             });
@@ -288,11 +288,11 @@ define("scenes/templates/level-scene", ["require", "exports", "scenes/templates/
         LevelScene.prototype.preloadFondo = function (fondo) {
             // cargar fondo
             if (fondo == 1 || fondo == 2 || fondo == 3 || fondo == 4) {
-                this.load.image('fondo.1', "assets/background/PNG/Cartoon_Forest_BG_0" + fondo + "/Layers/Sky.png");
-                this.load.image('fondo.2', "assets/background/PNG/Cartoon_Forest_BG_0" + fondo + "/Layers/BG_Decor.png");
-                this.load.image('fondo.3', "assets/background/PNG/Cartoon_Forest_BG_0" + fondo + "/Layers/Middle_Decor.png");
-                this.load.image('fondo.4', "assets/background/PNG/Cartoon_Forest_BG_0" + fondo + "/Layers/Foreground.png");
-                this.load.image('fondo.5', "assets/background/PNG/Cartoon_Forest_BG_0" + fondo + "/Layers/Ground.png");
+                this.load.image('fondo.1', "background/PNG/Cartoon_Forest_BG_0" + fondo + "/Layers/Sky.png");
+                this.load.image('fondo.2', "background/PNG/Cartoon_Forest_BG_0" + fondo + "/Layers/BG_Decor.png");
+                this.load.image('fondo.3', "background/PNG/Cartoon_Forest_BG_0" + fondo + "/Layers/Middle_Decor.png");
+                this.load.image('fondo.4', "background/PNG/Cartoon_Forest_BG_0" + fondo + "/Layers/Foreground.png");
+                this.load.image('fondo.5', "background/PNG/Cartoon_Forest_BG_0" + fondo + "/Layers/Ground.png");
             }
             else {
                 throw new TypeError("Parameter 'fondo' of type [ 1 | 2 | 3 | 4 ] is not assignable to " + fondo);
@@ -300,11 +300,11 @@ define("scenes/templates/level-scene", ["require", "exports", "scenes/templates/
         };
         LevelScene.prototype._preloadTiles = function () {
             for (var i = 2; i < 129; i++) {
-                this.load.image("tile." + i, "assets/enviroment/PNG/Tiles/tile" + i + ".png");
+                this.load.image("tile." + i, "enviroment/PNG/Tiles/tile" + i + ".png");
             }
-            this.load.image('tile.ground.start', 'assets/enviroment/PNG/Tiles/tile31.png');
-            this.load.image('tile.ground.center', 'assets/enviroment/PNG/Tiles/tile32.png');
-            this.load.image('tile.ground.end', 'assets/enviroment/PNG/Tiles/tile30.png');
+            this.load.image('tile.ground.start', 'enviroment/PNG/Tiles/tile31.png');
+            this.load.image('tile.ground.center', 'enviroment/PNG/Tiles/tile32.png');
+            this.load.image('tile.ground.end', 'enviroment/PNG/Tiles/tile30.png');
         };
         return LevelScene;
     }(default_scene_1.default));

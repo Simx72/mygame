@@ -85,11 +85,11 @@ export default class LevelScene extends DefaultScene {
   preloadFondo(fondo: 1 | 2 | 3 | 4) {
     // cargar fondo
     if (fondo == 1 || fondo == 2 || fondo == 3 || fondo == 4) {
-      this.load.image('fondo.1', `assets/background/PNG/Cartoon_Forest_BG_0${fondo}/Layers/Sky.png`);
-      this.load.image('fondo.2', `assets/background/PNG/Cartoon_Forest_BG_0${fondo}/Layers/BG_Decor.png`);
-      this.load.image('fondo.3', `assets/background/PNG/Cartoon_Forest_BG_0${fondo}/Layers/Middle_Decor.png`);
-      this.load.image('fondo.4', `assets/background/PNG/Cartoon_Forest_BG_0${fondo}/Layers/Foreground.png`);
-      this.load.image('fondo.5', `assets/background/PNG/Cartoon_Forest_BG_0${fondo}/Layers/Ground.png`);
+      this.load.image('fondo.1', `background/PNG/Cartoon_Forest_BG_0${fondo}/Layers/Sky.png`);
+      this.load.image('fondo.2', `background/PNG/Cartoon_Forest_BG_0${fondo}/Layers/BG_Decor.png`);
+      this.load.image('fondo.3', `background/PNG/Cartoon_Forest_BG_0${fondo}/Layers/Middle_Decor.png`);
+      this.load.image('fondo.4', `background/PNG/Cartoon_Forest_BG_0${fondo}/Layers/Foreground.png`);
+      this.load.image('fondo.5', `background/PNG/Cartoon_Forest_BG_0${fondo}/Layers/Ground.png`);
     } else {
       throw new TypeError(`Parameter 'fondo' of type [ 1 | 2 | 3 | 4 ] is not assignable to ${fondo}`)
     }
@@ -98,12 +98,12 @@ export default class LevelScene extends DefaultScene {
   _preloadTiles() {
 
     for (let i = 2; i < 129; i++) {
-      this.load.image(`tile.${i}`, `assets/enviroment/PNG/Tiles/tile${i}.png`)
+      this.load.image(`tile.${i}`, `enviroment/PNG/Tiles/tile${i}.png`)
     }
 
-    this.load.image('tile.ground.start', 'assets/enviroment/PNG/Tiles/tile31.png')
-    this.load.image('tile.ground.center', 'assets/enviroment/PNG/Tiles/tile32.png')
-    this.load.image('tile.ground.end', 'assets/enviroment/PNG/Tiles/tile30.png')
+    this.load.image('tile.ground.start', 'enviroment/PNG/Tiles/tile31.png')
+    this.load.image('tile.ground.center', 'enviroment/PNG/Tiles/tile32.png')
+    this.load.image('tile.ground.end', 'enviroment/PNG/Tiles/tile30.png')
 
   }
 
