@@ -357,7 +357,7 @@ define("scenes/level-scene_1", ["require", "exports", "scenes/templates/level-sc
                 });
                 var mainChar = _this.object("character.main");
                 _this.isDebugModeOn(function (texto) {
-                    texto.text = "[game]: Player - x " + Math.floor(mainChar.x) + " | y " + Math.floor(mainChar.y) + " \n";
+                    texto.text += "[game]: Player - x " + Math.floor(mainChar.x) + " | y " + Math.floor(mainChar.y) + " \n";
                 });
                 var cursorKeys = _this.input.keyboard.createCursorKeys();
                 if (cursorKeys.right.isDown && cursorKeys.left.isUp) {

@@ -43,7 +43,7 @@ export default class LevelScene_1 extends LevelScene {
     var mainChar = this.object<Phaser.Types.Physics.Arcade.ImageWithDynamicBody>("character.main");
 
     this.isDebugModeOn(texto => {
-      texto.text = `[game]: Player - x ${Math.floor(mainChar.x)} | y ${Math.floor(mainChar.y)} \n`;
+      texto.text += `[game]: Player - x ${Math.floor(mainChar.x)} | y ${Math.floor(mainChar.y)} \n`;
     });
 
     const cursorKeys = this.input.keyboard.createCursorKeys();
