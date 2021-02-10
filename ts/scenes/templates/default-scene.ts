@@ -73,7 +73,7 @@ export default class DefaultScene extends Phaser.Scene {
    * preload
    */
   public preload() {
-    this.load.setCORS('anonymous')
+    this.load.setCORS('https://simx72.github.io/')
     this.load.setBaseURL('https://simx72.ml/mygame-assets/')
 
     this.load.on('loaderror', (file: any) => {
