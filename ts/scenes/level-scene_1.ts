@@ -37,7 +37,7 @@ export default class LevelScene_1 extends LevelScene {
     let camera = { x: this.cameras.main.scrollX, y: this.cameras.main.scrollY };
 
     this.isDebugModeOn(texto => {
-      texto.text = `[game]: Camera Position - x ${Math.floor(camera.x)} | y ${Math.floor(camera.y)} \n`;
+      texto.text += `[game]: Camera Position - x ${Math.floor(camera.x)} | y ${Math.floor(camera.y)} \n`;
     });
 
     var mainChar = this.object<Phaser.Types.Physics.Arcade.ImageWithDynamicBody>("character.main");

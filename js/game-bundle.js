@@ -354,7 +354,7 @@ define("scenes/level-scene_1", ["require", "exports", "scenes/templates/level-sc
             _this.$update = function () {
                 var camera = { x: _this.cameras.main.scrollX, y: _this.cameras.main.scrollY };
                 _this.isDebugModeOn(function (texto) {
-                    texto.text = "[game]: Camera Position - x " + Math.floor(camera.x) + " | y " + Math.floor(camera.y) + " \n";
+                    texto.text += "[game]: Camera Position - x " + Math.floor(camera.x) + " | y " + Math.floor(camera.y) + " \n";
                 });
                 var mainChar = _this.object("character.main");
                 _this.isDebugModeOn(function (texto) {
