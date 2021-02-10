@@ -57,6 +57,7 @@ define("scenes/templates/default-scene", ["require", "exports"], function (requi
          * preload
          */
         DefaultScene.prototype.preload = function () {
+            this.load.setCORS('anonymous');
             this.load.setBaseURL('https://pagina-simx72-aba9b.web.app/mygame-assets/');
             this.load.on('loaderror', function (file) {
                 console.log(file);
