@@ -81,7 +81,7 @@ define("scenes/templates/default-scene", ["require", "exports"], function (requi
         DefaultScene.prototype.create = function () {
             this.dato('debug mode', this.physics.config.debug);
             if (this.dato('debug mode')) {
-                this.object('texto.debug', this.add.text(10, 10, 'Camera Position').setOrigin(0, 0));
+                this.object('texto.debug', this.add.text(10, 10, 'Camera Position').setOrigin(0, 0).setDepth(100));
             }
             this._create();
         };
@@ -91,8 +91,8 @@ define("scenes/templates/default-scene", ["require", "exports"], function (requi
         DefaultScene.prototype.update = function () {
             var _this = this;
             this.isDebugModeOn(function (texto) {
-                texto.setPosition(_this.cameras.main.scrollX + 10, _this.cameras.main.scrollY + 10);
                 texto.text = '';
+                texto.setPosition(_this.cameras.main.scrollX + 10, _this.cameras.main.scrollY + 10);
                 texto.text += "[scene]: key " + _this.scene.key + " | width " + _this.scale.width + " | height " + _this.scale.height + " \n";
             });
             this._update();
