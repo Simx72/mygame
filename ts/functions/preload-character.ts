@@ -2,7 +2,7 @@ import LevelScene from '../scenes/templates/level-scene';
 export default function preloadCharacter(game: LevelScene) {
   game.load.spritesheet(
     'character.main.idle',
-    location.href + 'characters/1-Woodcutter/Woodcutter_idle.png',
+    'characters/1-Woodcutter/Woodcutter_idle.png',
     {
       frameWidth: 27,
       frameHeight: 32,
@@ -13,7 +13,7 @@ export default function preloadCharacter(game: LevelScene) {
   )
   game.load.spritesheet(
     'character.main.attack.1',
-    location.href + 'characters/1-Woodcutter/Woodcutter_attack1.png',
+    'characters/1-Woodcutter/Woodcutter_attack1.png',
     {
       frameWidth: 45,
       frameHeight: 38,
