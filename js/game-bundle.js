@@ -53,35 +53,69 @@ define("scenes/templates/default-scene", ["require", "exports"], function (requi
                 return this._object.data[id];
             }
         };
-        /**
-         * preload
-         */
-        DefaultScene.prototype.preload = function () {
-            this.load.setCORS('anonymous');
-            this.load.setBaseURL('https://pagina-simx72-aba9b.web.app/mygame-assets/');
-            this.load.on('loaderror', function (file) {
-                console.log(file);
-            });
-            this.load.xhr.withCredentials = false;
-            this.centerX = this.game.scale.width / 2;
-            this.centerY = this.game.scale.height / 2;
-            this._preload();
-        };
-        /**
-         * create
-         */
-        DefaultScene.prototype.create = function () {
-            this._create();
-        };
-        /**
-         * update
-         */
-        DefaultScene.prototype.update = function () {
-            this._update();
-        };
+        DefaultScene.prototype.isDebugModeOn = function () { };
         return DefaultScene;
     }(Phaser.Scene));
     exports.default = DefaultScene;
+    (function () { return void ; });
+    void {};
+    centerX: number;
+    centerY: number;
+    _object: {
+        object: {
+            [c, string];
+            any;
+        }
+        data: {
+            [c, string];
+            any;
+        }
+    }
+    /**
+     * should override
+     * @override
+     */
+    _preload: (function () { return void 
+    /**
+     * should override
+     * @override
+     */
+    _create; });
+    (function () { return void 
+    /**
+     * should override
+     * @override
+     */
+    _update; });
+    (function () { return void 
+    /**
+     * preload
+     */
+    public; });
+    preload();
+    {
+        this.load.setCORS('anonymous');
+        this.load.setBaseURL('https://pagina-simx72-aba9b.web.app/mygame-assets/');
+        this.load.on('loaderror', function (file) {
+            console.log(file);
+        });
+        this.load.xhr.withCredentials = false;
+        this.centerX = this.game.scale.width / 2;
+        this.centerY = this.game.scale.height / 2;
+        this._preload();
+    }
+    create();
+    {
+        this.dato('debug mode', this.physics.config.debug);
+        if (this.dato('debug mode')) {
+            this.object('texto.debug', this.add.text(10, 10, 'Camera Position').setOrigin(0, 0));
+        }
+        this._create();
+    }
+    update();
+    {
+        this._update();
+    }
 });
 define("functions/cargar-main-character", ["require", "exports"], function (require, exports) {
     "use strict";
