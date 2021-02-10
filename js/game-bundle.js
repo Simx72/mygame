@@ -353,10 +353,12 @@ define("scenes/level-scene_1", ["require", "exports", "scenes/templates/level-sc
             _this.$update = function () {
                 var camera = { x: _this.cameras.main.scrollX, y: _this.cameras.main.scrollY };
                 _this.isDebugModeOn(function (texto) {
-                    texto.setPosition(camera.x + 10, camera.y + 10);
-                    texto.text = "Camera Position\t| x: " + Math.floor(camera.x) + "\t| y: " + Math.floor(camera.y) + "\n";
+                    texto.text = "[game]: Camera Position - x " + Math.floor(camera.x) + " | y " + Math.floor(camera.y) + " \n";
                 });
                 var mainChar = _this.object("character.main");
+                _this.isDebugModeOn(function (texto) {
+                    texto.text = "[game]: Player - x " + Math.floor(mainChar.x) + " | y " + Math.floor(mainChar.y) + " \n";
+                });
                 var cursorKeys = _this.input.keyboard.createCursorKeys();
                 if (cursorKeys.right.isDown && cursorKeys.left.isUp) {
                     mainChar.body.setVelocityX(500);
