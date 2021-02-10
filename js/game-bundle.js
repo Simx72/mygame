@@ -187,14 +187,14 @@ define("functions/preload-character", ["require", "exports"], function (require,
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     function preloadCharacter(game) {
-        game.load.spritesheet('character.main.idle', location.href + 'http://simx72-mygame-assets.epizy.com/assets/characters/1-Woodcutter/Woodcutter_idle.png', {
+        game.load.spritesheet('character.main.idle', location.href + 'characters/1-Woodcutter/Woodcutter_idle.png', {
             frameWidth: 27,
             frameHeight: 32,
             margin: 0,
             spacing: 21,
             endFrame: 4
         });
-        game.load.spritesheet('character.main.attack.1', location.href + 'http://simx72-mygame-assets.epizy.com/assets/characters/1-Woodcutter/Woodcutter_attack1.png', {
+        game.load.spritesheet('character.main.attack.1', location.href + 'characters/1-Woodcutter/Woodcutter_attack1.png', {
             frameWidth: 45,
             frameHeight: 38,
             margin: 0,
