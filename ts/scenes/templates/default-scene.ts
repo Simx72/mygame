@@ -115,6 +115,10 @@ export default class DefaultScene extends Phaser.Scene {
    * update
    */
   public update() {
+    this.isDebugModeOn(texto => {
+      texto.setPosition(this.cameras.main.scrollX + 10, this.cameras.main.scrollY + 10);
+      texto.text += `[scene]: key ${this.scene.key} | width ${this.scale.width} | height ${this.scale.height} \n`;
+    })
     this._update()
   }
 
