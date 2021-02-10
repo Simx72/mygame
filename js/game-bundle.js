@@ -91,9 +91,8 @@ define("scenes/templates/default-scene", ["require", "exports"], function (requi
         DefaultScene.prototype.update = function () {
             var _this = this;
             this.isDebugModeOn(function (texto) {
-                texto.text = '';
                 texto.setPosition(_this.cameras.main.scrollX + 10, _this.cameras.main.scrollY + 10);
-                texto.text += "[scene]: key " + _this.scene.key + " | width " + _this.scale.width + " | height " + _this.scale.height + " \n";
+                texto.text = "[scene]: key " + _this.scene.key + " | width " + _this.scale.width + " | height " + _this.scale.height + " \n";
             });
             this._update();
         };
