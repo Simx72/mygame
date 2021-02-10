@@ -343,18 +343,14 @@ define("scenes/level-scene_1", ["require", "exports", "scenes/templates/level-sc
                 // this.physics.world.gravity.y = 100;
                 var camera = _this.cameras.main;
                 camera.setBounds(0, 0, _this.scale.width * 5, 0);
-                if (_this.physics.config.debug) {
-                    _this.object('texto.debug', _this.add.text(10, 10, 'Camera Position').setOrigin(0, 0));
-                }
             };
             /* update part */
             _this.$update = function () {
                 var camera = { x: _this.cameras.main.scrollX, y: _this.cameras.main.scrollY };
-                if (_this.physics.config.debug) {
-                    var texto = _this.object('texto.debug');
+                _this.isDebugModeOn(function (texto) {
                     texto.setPosition(camera.x + 10, camera.y + 10);
                     texto.text = "Camera Position\t| x: " + Math.floor(camera.x) + "\t| y: " + Math.floor(camera.y) + "\n";
-                }
+                });
                 _this._updateFondo();
                 var mainChar = _this.object("character.main");
                 var cursorKeys = _this.input.keyboard.createCursorKeys();

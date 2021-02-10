@@ -27,13 +27,6 @@ export default class LevelScene_1 extends LevelScene {
 
     camera.setBounds(0, 0, this.scale.width * 5, 0)
 
-    if (this.physics.config.debug) {
-      this.object(
-        'texto.debug',
-        this.add.text(10, 10, 'Camera Position').setOrigin(0, 0)
-      );
-    }
-
   }
 
 
@@ -43,11 +36,10 @@ export default class LevelScene_1 extends LevelScene {
 
     let camera = { x: this.cameras.main.scrollX, y: this.cameras.main.scrollY };
 
-    if (this.physics.config.debug) {
-      let texto = this.object<Phaser.GameObjects.Text>('texto.debug');
+    this.isDebugModeOn((texto) => {
       texto.setPosition(camera.x + 10, camera.y + 10);
       texto.text = `Camera Position\t| x: ${Math.floor(camera.x)}\t| y: ${Math.floor(camera.y)}\n`;
-    }
+    });
 
     this._updateFondo()
 
