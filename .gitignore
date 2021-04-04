@@ -1,8 +1,5 @@
 .DS_Store
 /.vscode
-*.psd
-*.ai
-*.eps
 node_modules/
 /assets/
 package-lock.json
