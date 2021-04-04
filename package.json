@@ -1,0 +1,27 @@
+{
+    "dependencies": {
+        "phaser": "^3.54.0",
+        "requirejs": "^2.3.6"
+    },
+    "devDependencies": {
+        "typescript": "^4.2.3"
+    },
+    "name": "el-tesoro",
+    "description": "Es un juego en 2 dimensiones para navegador.",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Simx72/mygame.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Simx72/mygame/issues"
+    },
+    "homepage": "https://github.com/Simx72/mygame#readme"
+}
