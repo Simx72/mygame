@@ -27,10 +27,10 @@
 <body>
     <div id="game"></div>
     <!-- PHASER -->
-    <script src="phaser/phaser.min.js"></script>
+    <script src="node_modules/phaser/dist/phaser.min.js"></script>
     <!-- GAME -->
-    <script src="requirejs/require.js"></script>
-    <script src="js/game-bundle.js"></script>
+    <script src="node_modules/requirejs/require"></script>
+    <script src="dist/game-bundle.js"></script>
     <script>
         var phaserGame;
         require(['main'], function(main) {
