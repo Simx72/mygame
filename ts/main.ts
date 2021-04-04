@@ -1,4 +1,4 @@
-/// <reference path="../phaser/typings/phaser.d.ts" />
+/// <reference path="../node_modules/phaser/types/phaser.d.ts" />
 import LevelScene_1 from './scenes/level-scene_1';
 import StartScene from './scenes/start-scene';
 
