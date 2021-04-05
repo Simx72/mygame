@@ -26,9 +26,8 @@ export default function cargarMainCharacter(this: LevelScene) {
 
   mainChar.setScale(2);
 
-  mainChar.on('animationcomplete', function (anim: { key: string; }, frame: any) {
-    let _this = eval("this") as Phaser.GameObjects.Sprite
-    _this.emit('anim_end[' + anim.key + ']', anim, frame);
+  mainChar.on('animationcomplete', function (this: Phaser.GameObjects.Sprite, anim: { key: string; }, frame: any) {
+    this.emit('anim_end[' + anim.key + ']', anim, frame);
   }, mainChar);
 
   mainChar.on('anim_end[attack]', () => {
