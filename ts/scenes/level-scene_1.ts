@@ -58,14 +58,6 @@ export default class LevelScene_1 extends LevelScene {
       mainChar.body.setVelocityX(0)
     }
 
-    if (cursorKeys.up.isDown) {
-      mainChar.body.setVelocityY(-500)
-    } else if (cursorKeys.down.isDown) {
-      mainChar.body.setVelocityY(500)
-    } else {
-      mainChar.body.setVelocityY(0)
-    }
-
   }
 
 }
