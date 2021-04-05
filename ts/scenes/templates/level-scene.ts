@@ -26,7 +26,7 @@ export default class LevelScene extends DefaultScene {
      */
     this._preload = () => {
       this._preloadTiles()
-      preloadCharacter(this)
+      preloadCharacter.bind(this)
       this.$preload()
     }
 
@@ -69,15 +69,15 @@ export default class LevelScene extends DefaultScene {
 
 
   _cargarMainCharacter() {
-    cargarMainCharacter(this)
+    cargarMainCharacter.bind(this)
   }
 
   cargarFondo() {
-    cargarFondo(this)
+    cargarFondo.bind(this)
   }
 
   _updateFondo() {
-    updateFondo(this)
+    updateFondo.bind(this)
   }
 
   calcularPos = calcularPos
