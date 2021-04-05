@@ -34,7 +34,7 @@ export default function cargarMainCharacter(this: LevelScene) {
     mainChar.anims.play('idle')
   })
 
-  mainChar.anims.play('attack');
+  // mainChar.anims.play('attack');
 
   /* CAMERA FOLLOW */
   this.cameras.main.startFollow(mainChar, false, 0.3, 0.3)
