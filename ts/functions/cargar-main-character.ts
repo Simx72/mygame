@@ -1,10 +1,10 @@
 import LevelScene from '../scenes/templates/level-scene';
-export default function cargarMainCharacter(game: LevelScene) {
+export default function cargarMainCharacter(this: LevelScene) {
 
   /* CREATE */
-  var mainChar = game.object(
+  var mainChar = this.object(
     "character.main",
-    game.physics.add.sprite(game.scale.width / 2, game.scale.height / 2, 'character.main.idle')
+    this.physics.add.sprite(this.scale.width / 2, this.scale.height / 2, 'character.main.idle')
   );
 
   /* OPTIONS */
@@ -13,21 +13,21 @@ export default function cargarMainCharacter(game: LevelScene) {
   /* ANIMS */
   mainChar.anims.create({
     key: 'idle',
-    frames: game.anims.generateFrameNumbers('character.main.idle', { start: 0, end: 3 }),
+    frames: this.anims.generateFrameNumbers('character.main.idle', { start: 0, end: 3 }),
     frameRate: 10,
     repeat: -1,
   })
 
   mainChar.anims.create({
     key: 'attack',
-    frames: game.anims.generateFrameNumbers('character.main.attack.1', { start: 0, end: 5 }),
+    frames: this.anims.generateFrameNumbers('character.main.attack.1', { start: 0, end: 5 }),
     frameRate: 10
   })
 
   mainChar.setScale(2);
 
   mainChar.on('animationcomplete', function (anim: { key: string; }, frame: any) {
-    let _this = eval("this") as Phaser.GameObjects.Sprite
+    let _this = eval("this") as Phaser.thisObjects.Sprite
     _this.emit('anim_end[' + anim.key + ']', anim, frame);
   }, mainChar);
 
@@ -38,6 +38,6 @@ export default function cargarMainCharacter(game: LevelScene) {
   mainChar.anims.play('attack');
 
   /* CAMERA FOLLOW */
-  game.cameras.main.startFollow(mainChar, false, 0.3, 0.3)
+  this.cameras.main.startFollow(mainChar, false, 0.3, 0.3)
 
 }
