@@ -1,26 +1,13 @@
-export default function calcularPos(camX: number, scale: number, width: number, text?: Phaser.GameObjects.Text) {
+export default function calcularPos(camX: number, scale: number, width: number) {
+  if (0 <= scale && scale <= 1) {
+    var rWidth = width;
 
-  var x: number;
+    if (scale != 1)
+      rWidth = width / (1 - scale)
 
-  var pastoInicio = camX * scale
-  var pastoFin = pastoInicio + width
-
-  var rWidth: number = width;
-
-  if (scale != 1)
-    rWidth = width / (1 - scale)
-
-  var part = Math.floor(camX / rWidth)
-
-  x = (part * width) + pastoInicio
-
-  if (typeof text != "undefined" && text != void 0) {
-    let f = (x: number) => x ? Math.floor(x) : 0;
-    text.text += `camX: ${f(camX)} - scale: ${scale} - width: ${f(width)}\n`;
-    text.text += `pasto inicio: ${f(pastoInicio)} - pasto fin: ${f(pastoFin)} - part: ${part} \n`;
-    text.text += `rWidth: ${f(rWidth)}\n`;
+    return ((Math.floor(camX / rWidth) * width) + camX * scale)
+  } else {
+    console.error("'scale' param must be a number between 0 and 1")
+    return 0;
   }
-
-  return x;
-
 }
