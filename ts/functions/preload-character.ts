@@ -1,6 +1,6 @@
 import LevelScene from '../scenes/templates/level-scene';
-export default function preloadCharacter(game: LevelScene) {
-  game.load.spritesheet(
+export default function preloadCharacter(this: LevelScene) {
+  this.load.spritesheet(
     'character.main.idle',
     'characters/1-Woodcutter/Woodcutter_idle.png',
     {
@@ -11,7 +11,7 @@ export default function preloadCharacter(game: LevelScene) {
       endFrame: 4
     }
   )
-  game.load.spritesheet(
+  this.load.spritesheet(
     'character.main.attack.1',
     'characters/1-Woodcutter/Woodcutter_attack1.png',
     {
