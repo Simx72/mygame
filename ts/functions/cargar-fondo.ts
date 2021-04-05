@@ -74,7 +74,7 @@ export default function cargarFondo(this: LevelScene) {
   var fondo5b = this.object(
     'fondo.5.b',
     this.add.image(
-      0 + this.game.scale.width,
+      0,
       0,
       'fondo.5'
     )
