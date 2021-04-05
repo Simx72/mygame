@@ -8,6 +8,6 @@ export default function calcularPos(camX: number, scale: number, width: number) 
     return ((Math.floor(camX / rWidth) * width) + camX * scale)
   } else {
     console.error("'scale' param must be a number between 0 and 1")
-    return 0;
+    return 0
   }
 }
