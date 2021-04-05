@@ -1,69 +1,69 @@
 import LevelScene from "../scenes/templates/level-scene";
-export default function cargarFondo(game: LevelScene) {
+export default function cargarFondo(this: LevelScene) {
 
-  var fondo1 = game.object(
+  var fondo1 = this.object(
     'fondo.1',
-    game.add.image(
+    this.add.image(
       0,
       0,
       'fondo.1'
     )
   );
 
-  var fondo2a = game.object(
+  var fondo2a = this.object(
     'fondo.2.a',
-    game.add.image(
+    this.add.image(
       0,
       0,
       'fondo.2'
     )
   );
-  var fondo2b = game.object(
+  var fondo2b = this.object(
     'fondo.2.b',
-    game.add.image(
+    this.add.image(
       0,
       0,
       'fondo.2'
     )
   );
 
-  var fondo3a = game.object(
+  var fondo3a = this.object(
     'fondo.3.a',
-    game.add.image(
+    this.add.image(
       0,
       0,
       'fondo.3'
     )
   );
-  var fondo3b = game.object(
+  var fondo3b = this.object(
     'fondo.3.b',
-    game.add.image(
+    this.add.image(
       0,
       0,
       'fondo.3'
     )
   );
 
-  var fondo4a = game.object(
+  var fondo4a = this.object(
     'fondo.4.a',
-    game.add.image(
+    this.add.image(
       0,
       0,
       'fondo.4'
     )
   );
-  var fondo4b = game.object(
+  var fondo4b = this.object(
     'fondo.4.b',
-    game.add.image(
+    this.add.image(
       0,
       0,
       'fondo.4'
     )
   );
 
-  var fondo5a = game.object(
+  var fondo5a = this.object(
     'fondo.5.a',
-    game.add.image(
+    this.add.image(
       0,
       0,
       'fondo.5',
@@ -71,35 +71,35 @@ export default function cargarFondo(game: LevelScene) {
     )
   );
 
-  var fondo5b = game.object(
+  var fondo5b = this.object(
     'fondo.5.b',
-    game.add.image(
-      0 + game.game.scale.width,
+    this.add.image(
+      0 + this.this.scale.width,
       0,
       'fondo.5'
     )
   );
 
-  fondo1.displayWidth = game.scale.width + 200;
-  fondo2a.displayWidth = game.scale.width;
-  fondo2b.displayWidth = game.scale.width;
-  fondo3a.displayWidth = game.scale.width;
-  fondo3b.displayWidth = game.scale.width;
-  fondo4a.displayWidth = game.scale.width;
-  fondo4b.displayWidth = game.scale.width;
-  fondo5a.displayWidth = game.scale.width;
-  fondo5b.displayWidth = game.scale.width;
-  fondo5b.displayWidth = game.scale.width;
+  fondo1.displayWidth = this.scale.width + 200;
+  fondo2a.displayWidth = this.scale.width;
+  fondo2b.displayWidth = this.scale.width;
+  fondo3a.displayWidth = this.scale.width;
+  fondo3b.displayWidth = this.scale.width;
+  fondo4a.displayWidth = this.scale.width;
+  fondo4b.displayWidth = this.scale.width;
+  fondo5a.displayWidth = this.scale.width;
+  fondo5b.displayWidth = this.scale.width;
+  fondo5b.displayWidth = this.scale.width;
 
-  fondo1.displayHeight = game.scale.height + 200;
-  fondo2a.displayHeight = game.scale.height;
-  fondo2b.displayHeight = game.scale.height;
-  fondo3a.displayHeight = game.scale.height;
-  fondo3b.displayHeight = game.scale.height;
-  fondo4a.displayHeight = game.scale.height;
-  fondo4b.displayHeight = game.scale.height;
-  fondo5a.displayHeight = game.scale.height;
-  fondo5b.displayHeight = game.scale.height;
+  fondo1.displayHeight = this.scale.height + 200;
+  fondo2a.displayHeight = this.scale.height;
+  fondo2b.displayHeight = this.scale.height;
+  fondo3a.displayHeight = this.scale.height;
+  fondo3b.displayHeight = this.scale.height;
+  fondo4a.displayHeight = this.scale.height;
+  fondo4b.displayHeight = this.scale.height;
+  fondo5a.displayHeight = this.scale.height;
+  fondo5b.displayHeight = this.scale.height;
 
   fondo1.setOrigin(0, 0);
   fondo2a.setOrigin(0, 0);
